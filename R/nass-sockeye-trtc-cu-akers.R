@@ -1,36 +1,19 @@
----
-title: "Alaskan Catch of BC Salmon"
-execute:
-  echo: false
-  message: false
-  warnings: false
----
 
-```{r include=FALSE}
 library(data.table)
 library(tidyverse)
 
-```
-
-## Skeena
-
-## Nass
-
-```{r, fig-trtc1,fig.cap="Alaskan exploitation on Nass sockeye by CU."}
 data<-fread("data-raw/sockeye-nass-trtc data.csv")
 
 data$`AK ER`<-data$`Total ER`-data$`CDN ER`
 
+#line plot of ak ers for each nass cu
 ggplot(data,aes(x=Year,y=`AK ER`))+
   geom_point()+geom_line()+
   facet_wrap(CU_Name~.,ncol=3)+
   labs(y="Alaskan Exploitation Rate")+
   theme_bw()
 
-
-```
-
-```{r, fig-trtc2,fig.cap="Alaskan exploitation on Nass sockeye. Boxplot."}
+#boxplot of ak ers for each nass cu
 ggplot(data,aes(x=`AK ER`,y=reorder(CU_Name,`AK ER`,median),fill=CU_Name))+
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(height=.1)+
@@ -38,14 +21,4 @@ ggplot(data,aes(x=`AK ER`,y=reorder(CU_Name,`AK ER`,median),fill=CU_Name))+
   theme_bw()+
   guides(fill="none")
 
-```
-
-## Transboundary
-
-## Fraser
-
-## Central Coast
-
-## WCVI
-
-## SOG
+#proportion cdn vs us catch
