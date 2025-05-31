@@ -11,14 +11,14 @@
     "href": "index.html",
     "title": "Alaskan Catch of BC Salmon",
     "section": "",
-    "text": "── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.2     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::between()     masks data.table::between()\n✖ dplyr::filter()      masks stats::filter()\n✖ dplyr::first()       masks data.table::first()\n✖ lubridate::hour()    masks data.table::hour()\n✖ lubridate::isoweek() masks data.table::isoweek()\n✖ dplyr::lag()         masks stats::lag()\n✖ dplyr::last()        masks data.table::last()\n✖ lubridate::mday()    masks data.table::mday()\n✖ lubridate::minute()  masks data.table::minute()\n✖ lubridate::month()   masks data.table::month()\n✖ lubridate::quarter() masks data.table::quarter()\n✖ lubridate::second()  masks data.table::second()\n✖ purrr::transpose()   masks data.table::transpose()\n✖ lubridate::wday()    masks data.table::wday()\n✖ lubridate::week()    masks data.table::week()\n✖ lubridate::yday()    masks data.table::yday()\n✖ lubridate::year()    masks data.table::year()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+    "text": "Information on Alaskan exploitation of Skeena sockeye comes primarily from the Northern Boundary Sockeye Run Reconstruction model, which uses estimated run-timing and migration route to provide estimates of interception rates in Alaska fisheries. Data in and show timeseries of Alaskan exploitation for each Skeena sockeye Conservation Units with information (Figure 1) and the distribution of exploitation rates (Figure 2).\n\n\n\n\n\n\n\n\nFigure 1: Alaskan exploitation rates for each Skeena sockeye Conservation Unit (1960-2023).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Alaskan exploitation rates on Skeena sockeye by CU."
   },
   {
     "objectID": "index.html#nass",
     "href": "index.html#nass",
     "title": "Alaskan Catch of BC Salmon",
     "section": "Nass",
-    "text": "Nass\n\n\n\n\n\n\n\n\nFigure 1: Alaskan exploitation on Nass sockeye by CU.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Alaskan exploitation on Nass sockeye. Boxplot."
+    "text": "Nass\n\nSockeye\n\n\n\n\n\n\n\n\nFigure 3: Alaskan exploitation on Nass sockeye by CU.\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: Alaskan exploitation on Nass sockeye. Boxplot."
   },
   {
     "objectID": "index.html#transboundary",
@@ -59,7 +59,7 @@
     "objectID": "index.html#skeena",
     "href": "index.html#skeena",
     "title": "Alaskan Catch of BC Salmon",
-    "section": "Skeena",
-    "text": "Skeena"
+    "section": "",
+    "text": "Information on Alaskan exploitation of Skeena sockeye comes primarily from the Northern Boundary Sockeye Run Reconstruction model, which uses estimated run-timing and migration route to provide estimates of interception rates in Alaska fisheries. Data in and show timeseries of Alaskan exploitation for each Skeena sockeye Conservation Units with information (Figure 1) and the distribution of exploitation rates (Figure 2).\n\n\n\n\n\n\n\n\nFigure 1: Alaskan exploitation rates for each Skeena sockeye Conservation Unit (1960-2023).\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Alaskan exploitation rates on Skeena sockeye by CU."
   }
 ]
