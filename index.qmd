@@ -7,7 +7,7 @@ execute:
   warning: false
 ---
 
-```{r include=FALSE}
+```{r}
 library(data.table)
 library(tidyverse)
 
