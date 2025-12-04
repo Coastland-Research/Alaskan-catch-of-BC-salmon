@@ -1,0 +1,97 @@
+﻿HQ_FISHERY,OPENING_DATE,CLOSING_DATE,SPECIES,AVG_WEIGHT,AVG_PRICE,NUMBERS
+Annette Island,2024-01-01 0:01,2024-12-31 23:59,Chinook,12.9,5.21,2470
+Annette Island,2024-01-01 0:01,2024-12-31 23:59,Chinook jack,,,6
+Annette Island,2024-01-01 0:01,2024-12-31 23:59,Chum,8.1,0.5,524946
+Annette Island,2024-01-01 0:01,2024-12-31 23:59,Coho,7.1,1.22,30162
+Annette Island,2024-01-01 0:01,2024-12-31 23:59,Pink,2.8,0.3,1065158
+Annette Island,2024-01-01 0:01,2024-12-31 23:59,Sockeye,5.6,2.04,17682
+Hatchery Terminal Gillnet,2024-06-01 0:01,2024-11-10 23:59,Chinook,10.6,4.42,8451
+Hatchery Terminal Gillnet,2024-06-01 0:01,2024-11-10 23:59,Chinook jack,,,0
+Hatchery Terminal Gillnet,2024-06-01 0:01,2024-11-10 23:59,Chum,6.8,0.47,1609124
+Hatchery Terminal Gillnet,2024-06-01 0:01,2024-11-10 23:59,Coho,7.4,1.63,13882
+Hatchery Terminal Gillnet,2024-06-01 0:01,2024-11-10 23:59,Pink,3.3,0.27,18285
+Hatchery Terminal Gillnet,2024-06-01 0:01,2024-11-10 23:59,Sockeye,5.1,1.82,22242
+Hatchery Terminal Seine,2024-06-01 0:01,2024-11-10 23:59,Chinook,11.8,3.67,9279
+Hatchery Terminal Seine,2024-06-01 0:01,2024-11-10 23:59,Chinook jack,,,347
+Hatchery Terminal Seine,2024-06-01 0:01,2024-11-10 23:59,Chum,6.8,0.46,3255737
+Hatchery Terminal Seine,2024-06-01 0:01,2024-11-10 23:59,Coho,5.8,0.66,4447
+Hatchery Terminal Seine,2024-06-01 0:01,2024-11-10 23:59,Pink,3,0.25,306481
+Hatchery Terminal Seine,2024-06-01 0:01,2024-11-10 23:59,Sockeye,5.3,1.03,15482
+Hatchery Terminal Troll,2024-06-01 0:01,2024-11-10 23:59,Chinook,11.5,7.18,2201
+Hatchery Terminal Troll,2024-06-01 0:01,2024-11-10 23:59,Chinook jack,,,0
+Hatchery Terminal Troll,2024-06-01 0:01,2024-11-10 23:59,Chum,8.3,0.56,14686
+Hatchery Terminal Troll,2024-06-01 0:01,2024-11-10 23:59,Coho,5,2.22,147
+Hatchery Terminal Troll,2024-06-01 0:01,2024-11-10 23:59,Pink,2.9,0.36,1230
+Hatchery Terminal Troll,2024-06-01 0:01,2024-11-10 23:59,Sockeye,7.7,2.91,3
+Lynn Canal Gillnet,2024-06-16 12:01,2024-09-25 12:00,Chinook,9,4.75,246
+Lynn Canal Gillnet,2024-06-16 12:01,2024-09-25 12:00,Chinook jack,,,0
+Lynn Canal Gillnet,2024-06-16 12:01,2024-09-25 12:00,Chum,6.7,0.48,814117
+Lynn Canal Gillnet,2024-06-16 12:01,2024-09-25 12:00,Coho,7.4,1.39,62004
+Lynn Canal Gillnet,2024-06-16 12:01,2024-09-25 12:00,Pink,3.8,0.38,11222
+Lynn Canal Gillnet,2024-06-16 12:01,2024-09-25 12:00,Sockeye,5.6,2.06,56582
+POW Gillnet,2024-06-16 12:01,2024-09-25 12:00,Chinook,9,3.03,1126
+POW Gillnet,2024-06-16 12:01,2024-09-25 12:00,Chinook jack,,,0
+POW Gillnet,2024-06-16 12:01,2024-09-25 12:00,Chum,8,0.56,125083
+POW Gillnet,2024-06-16 12:01,2024-09-25 12:00,Coho,7.5,1.39,57780
+POW Gillnet,2024-06-16 12:01,2024-09-25 12:00,Pink,3.5,0.36,15217
+POW Gillnet,2024-06-16 12:01,2024-09-25 12:00,Sockeye,5.4,1.97,40687
+SE Hatchery Cost R,2024-05-01 0:01,2024-11-30 23:59,Chinook,11.3,2.11,19427
+SE Hatchery Cost R,2024-05-01 0:01,2024-11-30 23:59,Chinook jack,,,5
+SE Hatchery Cost R,2024-05-01 0:01,2024-11-30 23:59,Chum,6.4,0.53,4440643
+SE Hatchery Cost R,2024-05-01 0:01,2024-11-30 23:59,Coho,6.5,1.5,218642
+SE Hatchery Cost R,2024-05-01 0:01,2024-11-30 23:59,Pink,3.2,0.34,385180
+SE Hatchery Cost R,2024-05-01 0:01,2024-11-30 23:59,Sockeye,4.7,1.03,56542
+Seine-Northern,2024-06-16 5:00,2024-09-09 19:00,Chinook,12.5,2.54,486
+Seine-Northern,2024-06-16 5:00,2024-09-09 19:00,Chinook jack,,,43
+Seine-Northern,2024-06-16 5:00,2024-09-09 19:00,Chum,6.2,0.39,1096572
+Seine-Northern,2024-06-16 5:00,2024-09-09 19:00,Coho,5.9,0.81,22043
+Seine-Northern,2024-06-16 5:00,2024-09-09 19:00,Pink,3.1,0.25,2918048
+Seine-Northern,2024-06-16 5:00,2024-09-09 19:00,Sockeye,4.1,1.25,125263
+Seine-Southern,2024-07-04 5:00,2024-09-15 19:00,Chinook,15.3,3.82,8023
+Seine-Southern,2024-07-04 5:00,2024-09-15 19:00,Chinook jack,,,1999
+Seine-Southern,2024-07-04 5:00,2024-09-15 19:00,Chum,7.4,0.5,1472973
+Seine-Southern,2024-07-04 5:00,2024-09-15 19:00,Coho,5.6,0.9,167386
+Seine-Southern,2024-07-04 5:00,2024-09-15 19:00,Pink,2.8,0.26,15171163
+Seine-Southern,2024-07-04 5:00,2024-09-15 19:00,Sockeye,5.9,1.3,268216
+Spring Troll,2024-05-01 0:01,2024-06-30 23:59,Chinook,10.8,7.52,14177
+Spring Troll,2024-05-01 0:01,2024-06-30 23:59,Chinook jack,,,0
+Spring Troll,2024-05-01 0:01,2024-06-30 23:59,Chum,6,0.49,1708
+Spring Troll,2024-05-01 0:01,2024-06-30 23:59,Coho,4.2,2.08,56
+Spring Troll,2024-05-01 0:01,2024-06-30 23:59,Pink,3,0.33,420
+Spring Troll,2024-05-01 0:01,2024-06-30 23:59,Sockeye,4.9,1.66,16
+Stikine Gillnet,2024-06-23 12:01,2024-09-25 12:00,Chinook,9.8,3.63,535
+Stikine Gillnet,2024-06-23 12:01,2024-09-25 12:00,Chinook jack,,,0
+Stikine Gillnet,2024-06-23 12:01,2024-09-25 12:00,Chum,7.7,0.53,88229
+Stikine Gillnet,2024-06-23 12:01,2024-09-25 12:00,Coho,7.4,1.56,9538
+Stikine Gillnet,2024-06-23 12:01,2024-09-25 12:00,Pink,3.4,0.25,2504
+Stikine Gillnet,2024-06-23 12:01,2024-09-25 12:00,Sockeye,5.3,2.19,16167
+Summer Troll,2024-07-01 0:01,2024-09-30 23:59,Chinook,10.6,6.1,86326
+Summer Troll,2024-07-01 0:01,2024-09-30 23:59,Chinook jack,,,0
+Summer Troll,2024-07-01 0:01,2024-09-30 23:59,Chum,6.8,0.53,804253
+Summer Troll,2024-07-01 0:01,2024-09-30 23:59,Coho,5.6,1.96,579091
+Summer Troll,2024-07-01 0:01,2024-09-30 23:59,Pink,3.4,0.29,57452
+Summer Troll,2024-07-01 0:01,2024-09-30 23:59,Sockeye,4.4,1.8,647
+Taku-Snet Gillnet,2024-06-16 12:01,2024-10-04 12:00,Chinook,8.6,4.76,810
+Taku-Snet Gillnet,2024-06-16 12:01,2024-10-04 12:00,Chinook jack,,,0
+Taku-Snet Gillnet,2024-06-16 12:01,2024-10-04 12:00,Chum,6.4,0.48,827552
+Taku-Snet Gillnet,2024-06-16 12:01,2024-10-04 12:00,Coho,8.1,1.57,32896
+Taku-Snet Gillnet,2024-06-16 12:01,2024-10-04 12:00,Pink,3.4,0.25,6554
+Taku-Snet Gillnet,2024-06-16 12:01,2024-10-04 12:00,Sockeye,5,2.14,89356
+Test Fisheries,2024-06-25 8:00,2024-07-30 20:00,Chinook,,,23
+Test Fisheries,2024-06-25 8:00,2024-07-30 20:00,Chinook jack,,,0
+Test Fisheries,2024-06-25 8:00,2024-07-30 20:00,Chum,,,64889
+Test Fisheries,2024-06-25 8:00,2024-07-30 20:00,Coho,,,388
+Test Fisheries,2024-06-25 8:00,2024-07-30 20:00,Pink,,,40305
+Test Fisheries,2024-06-25 8:00,2024-07-30 20:00,Sockeye,,,3841
+Tree Point Gillnet,2024-06-16 12:01,2024-09-27 12:00,Chinook,12.5,3.81,1166
+Tree Point Gillnet,2024-06-16 12:01,2024-09-27 12:00,Chinook jack,,,0
+Tree Point Gillnet,2024-06-16 12:01,2024-09-27 12:00,Chum,7.9,0.5,401534
+Tree Point Gillnet,2024-06-16 12:01,2024-09-27 12:00,Coho,7.4,1.17,45078
+Tree Point Gillnet,2024-06-16 12:01,2024-09-27 12:00,Pink,3.4,0.25,88176
+Tree Point Gillnet,2024-06-16 12:01,2024-09-27 12:00,Sockeye,5.6,1.71,24587
+Yakutat Gillnet,2024-06-02 0:00,2024-11-02 23:59,Chinook,8.6,2.18,372
+Yakutat Gillnet,2024-06-02 0:00,2024-11-02 23:59,Chinook jack,,,0
+Yakutat Gillnet,2024-06-02 0:00,2024-11-02 23:59,Chum,5.7,0.25,11546
+Yakutat Gillnet,2024-06-02 0:00,2024-11-02 23:59,Coho,7,1,109577
+Yakutat Gillnet,2024-06-02 0:00,2024-11-02 23:59,Pink,3.9,0.25,8348
+Yakutat Gillnet,2024-06-02 0:00,2024-11-02 23:59,Sockeye,4.9,1.46,57528
