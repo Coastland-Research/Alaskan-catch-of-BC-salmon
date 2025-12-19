@@ -36,5 +36,7 @@ fig5_harv <- catch %>%
   theme(legend.position = "")
 
 grid.arrange(fig5_harv, fig5_val, nrow = 1)
+fig5 <- arrangeGrob(fig5_harv, fig5_val, nrow = 1)
 
-ggsave("fig5.png")
+
+ggsave("fig5.png", fig5)
