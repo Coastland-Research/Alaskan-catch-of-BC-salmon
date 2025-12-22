@@ -12,7 +12,7 @@ fig3 <- catch %>%
   ylab("Number of fish (millions)") +
   theme(legend.position = "bottom")
 
-ggsave("fig3.png")
+ggsave("fig3.png", fig3)
 # figure 5 - SEAK harvest and value broken down by species over years
 
 value <- read.csv("data-raw/ADFG AK Harvest and Vaue 1980 2022.csv") %>%

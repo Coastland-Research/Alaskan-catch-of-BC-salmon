@@ -44,7 +44,6 @@ nass.sx.trtc<-fread("data-raw/sockeye-nass-trtc data.csv")
 
 #### Statistical Area
 
-
 #### Conservation Units
 
 Information on Alaskan exploitation of Skeena sockeye comes primarily from the Northern Boundary Sockeye Run Reconstruction model, which uses estimated run-timing and migration route to provide estimates of interception rates in Alaska fisheries. We show timeseries of Alaskan exploitation rates for each Skeena sockeye Conservation Unit with information (@fig-skeena-trtc1) and the distribution of exploitation rates (@fig-skeena-trtc2).
@@ -62,9 +61,6 @@ make.skeena.trtc.boxplot(skeena.sx.trtc)
 ```
 
 ### Chinook
-
-
-
 
 ## Nass
 
@@ -95,5 +91,3 @@ make.nass.trtc.boxplot(nass.sx.trtc)
 ## SOG
 
 ## Appendix 1: Pacific Salmon Commission Chinook Technical Committee Mortality Distribution Tables
-
-
