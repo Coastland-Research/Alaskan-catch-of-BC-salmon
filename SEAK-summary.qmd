@@ -37,6 +37,10 @@ value <- read.csv("data-raw/ADFG AK Harvest and Vaue 1980 2022.csv") %>%
   mutate(Species = factor(`Species.Code`),
          Value = `Estimated.Exvessel.Value..Nominal.`)
 
+#for figures 7-11
+bluesheet <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Species 1985-present Fish Tickets.csv")
+
+
 ```
 
 # Summary
@@ -87,11 +91,24 @@ make.skeena.trtc.boxplot(skeena.sx.trtc)
 
 ### Chinook
 
+```{r fig-cn-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Chinook by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
+make.chinook.bluesheet(bluesheet)
+```
+
 ### Coho
+```{r fig-co-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Coho by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
+make.coho.bluesheet(bluesheet)
+```
 
 ### Chum
+```{r fig-cm-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Chum by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
+make.chum.bluesheet(bluesheet)
+```
 
 ### Pink
+```{r fig-pk-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Pink Salmon by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
+make.pink.bluesheet(bluesheet)
+```
 
 ## Nass
 
