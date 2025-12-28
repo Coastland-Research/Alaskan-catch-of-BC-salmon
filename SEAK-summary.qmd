@@ -12,30 +12,46 @@ editor_options:
 ```{r}
 library(data.table)
 library(tidyverse)
-
 ```
 
 ```{r source all scripts with functions}
 source("R/skeena-sockeye-trtc-cu-akers.R")
 source("R/nass-sockeye-trtc-cu-akers.R")
 
+source("R/figure_3_5_script.R")
+source("R/region1_catchbyarea.R")
+source("R/figure_15_script.R")
+
 ```
 
 ```{r read in all data needed}
-
 skeena.sx.trtc<-fread("data-raw/sockeye-skeena-trtc data.csv")
 nass.sx.trtc<-fread("data-raw/sockeye-nass-trtc data.csv")
 
+harvests<-fread("data-raw/SEAK D101-D106 harvest by district by week.csv")
+
+catch <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Species 1985-present Fish Tickets.csv") %>%
+  mutate(Species = factor(`Species.Name`))
+
+value <- read.csv("data-raw/ADFG AK Harvest and Vaue 1980 2022.csv") %>%
+  mutate(Species = factor(`Species.Code`),
+         Value = `Estimated.Exvessel.Value..Nominal.`)
 
 ```
 
-# Southeast Alaska Catch Summary
+# Summary
 
-# Southeast Alaska Catch of BC Salmon by Region
+# Southeast Alaska Catch of BC Salmon
+
+![Figure 1](figure1-map.png){width=80%}
+
+```{r}
+make.harvest.byspecies(catch)
+make.harvest.value.byspecies(value, catch)
+
+```
 
 ## Skeena
-
-### Summary
 
 -   Alaskan fisheries catch all species of salmon in the Skeena
 -   Catch of Skeena sockeye is estimated through the Northern Boundary Run Reconstruction Model and can be very high in some years, especially on late timed populations
@@ -43,6 +59,11 @@ nass.sx.trtc<-fread("data-raw/sockeye-nass-trtc data.csv")
 ### Sockeye
 
 #### Statistical Area
+```{r fig-catch-statweek, fig.height=10, fig.cap="Harvest by species, gear type district, and statistical week"}
+
+make.catch.statweek.plot(harvests)
+
+```
 
 #### Conservation Units
 
@@ -61,6 +82,12 @@ make.skeena.trtc.boxplot(skeena.sx.trtc)
 ```
 
 ### Chinook
+
+### Coho
+
+### Chum
+
+### Pink
 
 ## Nass
 
