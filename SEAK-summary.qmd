@@ -1,12 +1,14 @@
 ---
 title: "Alaskan Catch of BC Salmon"
-output: html
+subtitle: "December 29, 2025"
+format: html
+editor: visual
+editor_options:
+  chunk_output_type: console
 execute:
   echo: false
-  message: false
   warning: false
-editor_options: 
-  chunk_output_type: console
+  message: false
 ---
 
 ```{r}
@@ -44,7 +46,7 @@ bluesheet <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Spe
 
 # Summary
 
-![Figure 1](figure1-map.png){width=80%}
+![Figure 1](figure1-map.png){width="80%"}
 
 # Southeast Alaska Catch of BC Salmon
 
@@ -64,6 +66,7 @@ make.harvest.value.byspecies(value, catch)
 ### Sockeye
 
 #### Statistical Area
+
 ```{r fig-catch-statweek, fig.height=10, fig.cap="Harvest by species, gear type district, and statistical week"}
 
 make.catch.statweek.plot(harvests)
@@ -92,16 +95,19 @@ make.chinook.bluesheet(bluesheet)
 ```
 
 ### Coho
+
 ```{r fig-co-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Coho by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.coho.bluesheet(bluesheet)
 ```
 
 ### Chum
+
 ```{r fig-cm-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Chum by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.chum.bluesheet(bluesheet)
 ```
 
 ### Pink
+
 ```{r fig-pk-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Pink Salmon by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.pink.bluesheet(bluesheet)
 ```
