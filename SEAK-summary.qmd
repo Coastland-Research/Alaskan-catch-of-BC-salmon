@@ -1,14 +1,17 @@
 ---
 title: "Alaskan Catch of BC Salmon"
-subtitle: "December 30, 2025"
 format: html
 editor: visual
+project:
+  type: website
+  output-dir: docs
 editor_options:
   chunk_output_type: console
 execute:
   echo: false
   warning: false
   message: false
+  
 ---
 
 ```{r}
