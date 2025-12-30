@@ -51,24 +51,24 @@ bluesheet <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Spe
 
 # Southeast Alaska Catch of BC Salmon
 
-## Fishing areas in Southeast Alaska
+### Fishing areas in Southeast Alaska
 ```{r include-jpeg, echo=FALSE, fig.cap = "Map of Southeast Alaska Fishing Areas by District", out.width='70%'}
 #| label: fig-seak-map
 knitr::include_graphics("figure1-map.jpeg")
 
 ```
 
-## Total salmon harvest in Southeast Alaska fisheries, by year and species
+### Total salmon harvest in Southeast Alaska fisheries, by year and species
 ```{r fig-harvest-species, fig.height=10, fig.cap="Southeast Alaska, US (SEAK) total harvest in millions of fish by species for each year for 1979-2021."}
 make.harvest.byspecies(catch)
 ```
 
-## Total salmon harvest and total value in Southeast Alaska fisheries, by year and species
+### Total salmon harvest and total value in Southeast Alaska fisheries, by year and species
 ```{r fig-seak-value, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest (millions of fish) and value (millions of US Dollars) by species from 1985-2023."}
 make.harvest.value.byspecies(value, catch)
 ```
 
-## 2023 Southeast Alaska harvest by statistical week, broken down by district, species, and gear type.
+### 2023 Southeast Alaska harvest by statistical week, broken down by district, species, and gear type.
 ```{r fig-catch-statweek, fig.height=10, fig.cap="Harvest by species, gear type, district, and statistical week"}
 
 make.catch.statweek.plot(harvests)
