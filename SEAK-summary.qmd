@@ -1,5 +1,6 @@
 ---
 title: "Alaskan Catch of BC Salmon"
+subtitle: "December 30, 2025"
 format: html
 editor: visual
 editor_options:
@@ -45,9 +46,10 @@ bluesheet <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Spe
 
 # Summary
 
-![Figure 1](figure1-map.png){width="80%"}
 
 # Southeast Alaska Catch of BC Salmon
+
+![Figure 1](figure1-map.png){width="80%"}
 
 ```{r fig-harvest-species, fig.height=10, fig.cap="Southeast Alaska, US (SEAK) total harvest in millions of fish by species for each year for 1979-2021."}
 make.harvest.byspecies(catch)
@@ -57,6 +59,11 @@ make.harvest.byspecies(catch)
 make.harvest.value.byspecies(value, catch)
 ```
 
+```{r fig-catch-statweek, fig.height=10, fig.cap="Harvest by species, gear type, district, and statistical week"}
+
+make.catch.statweek.plot(harvests)
+```
+
 ## Skeena
 
 -   Alaskan fisheries catch all species of salmon in the Skeena
@@ -64,12 +71,7 @@ make.harvest.value.byspecies(value, catch)
 
 ### Sockeye
 
-#### Statistical Area
-
-```{r fig-catch-statweek, fig.height=10, fig.cap="Harvest by species, gear type district, and statistical week"}
-
-make.catch.statweek.plot(harvests)
-```
+#### Statistical Areas
 
 #### Conservation Units
 
