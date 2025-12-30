@@ -51,31 +51,35 @@ bluesheet <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Spe
 
 # Southeast Alaska Catch of BC Salmon
 
-![Figure 1](figure1-map.png){width="80%"}
+## Fishing areas in Southeast Alaska
+```{r include-jpeg, echo=FALSE, fig.cap = "Map of Southeast Alaska Fishing Areas by District", out.width='70%'}
+#| label: fig-seak-map
+knitr::include_graphics("figure1-map.jpeg")
 
+```
+
+## Total salmon harvest in Southeast Alaska fisheries, by year and species
 ```{r fig-harvest-species, fig.height=10, fig.cap="Southeast Alaska, US (SEAK) total harvest in millions of fish by species for each year for 1979-2021."}
 make.harvest.byspecies(catch)
 ```
 
-```{r seak-value, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest (millions of fish) and value (millions of US Dollars) by species from 1985-2023."}
+## Total salmon harvest and total value in Southeast Alaska fisheries, by year and species
+```{r fig-seak-value, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest (millions of fish) and value (millions of US Dollars) by species from 1985-2023."}
 make.harvest.value.byspecies(value, catch)
 ```
 
+## 2023 Southeast Alaska harvest by statistical week, broken down by district, species, and gear type.
 ```{r fig-catch-statweek, fig.height=10, fig.cap="Harvest by species, gear type, district, and statistical week"}
 
 make.catch.statweek.plot(harvests)
 ```
 
-## Skeena
+# Skeena Region
 
 -   Alaskan fisheries catch all species of salmon in the Skeena
 -   Catch of Skeena sockeye is estimated through the Northern Boundary Run Reconstruction Model and can be very high in some years, especially on late timed populations
 
-### Sockeye
-
-#### Statistical Areas
-
-#### Conservation Units
+## Sockeye
 
 Information on Alaskan exploitation of Skeena sockeye comes primarily from the Northern Boundary Sockeye Run Reconstruction model, which uses estimated run-timing and migration route to provide estimates of interception rates in Alaska fisheries. We show time-series of Alaskan exploitation rates for each Skeena sockeye Conservation Unit with information (@fig-skeena-trtc1) and the distribution of exploitation rates (@fig-skeena-trtc2).
 
@@ -89,6 +93,31 @@ make.skeena.trtc.lineplot(skeena.sx.trtc)
 
 make.skeena.trtc.boxplot(skeena.sx.trtc)
 
+```
+
+# Nass Region
+
+## Sockeye
+
+Information on Alaskan exploitation of Nass sockeye comes primarily from the Northern Boundary Sockeye Run Reconstruction model, which uses estimated run-timing and migration route to provide estimates of interception rates in Alaska fisheries. We show timeseries of Alaskan exploitation rates for each Nass sockeye Conservation Unit with information (@fig-nass-trtc1) and the distribution of exploitation rates by CU (@fig-nass-trtc2).
+```{r fig-nass-trtc1,fig.height=5,fig.cap="Alaskan exploitation on Nass sockeye by CU."}
+
+make.nass.trtc.lineplot(nass.sx.trtc)
+```
+
+```{r fig-nass-trtc2,fig.cap="Distribution of Alaskan exploitation rates on each Nass sockeye CU with information (1960-2023)."}
+
+make.nass.trtc.boxplot(nass.sx.trtc)
+```
+
+
+
+# Blue Sheet fishery harvests by species, 1980-2024
+
+### Sockeye
+
+```{r fig-sk-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Sockeye by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
+make.sockeye.bluesheet(bluesheet)
 ```
 
 ### Chinook
@@ -115,21 +144,6 @@ make.chum.bluesheet(bluesheet)
 make.pink.bluesheet(bluesheet)
 ```
 
-## Nass
-
-### Sockeye
-
-Information on Alaskan exploitation of Nass sockeye comes primarily from the Northern Boundary Sockeye Run Reconstruction model, which uses estimated run-timing and migration route to provide estimates of interception rates in Alaska fisheries. We show timeseries of Alaskan exploitation rates for each Nass sockeye Conservation Unit with information (@fig-nass-trtc1) and the distribution of exploitation rates by CU (@fig-nass-trtc2).
-
-```{r fig-nass-trtc1,fig.height=5,fig.cap="Alaskan exploitation on Nass sockeye by CU."}
-
-make.nass.trtc.lineplot(nass.sx.trtc)
-```
-
-```{r fig-nass-trtc2,fig.cap="Distribution of Alaskan exploitation rates on each Nass sockeye CU with information (1960-2023)."}
-
-make.nass.trtc.boxplot(nass.sx.trtc)
-```
 
 ## Transboundary
 
