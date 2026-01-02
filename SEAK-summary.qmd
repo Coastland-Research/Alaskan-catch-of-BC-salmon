@@ -28,7 +28,7 @@ source("R/figure_15_script.R")
 
 ```
 
-```{r read in all data needed}
+```{r read in all data}
 skeena.sx.trtc<-fread("data-raw/sockeye-skeena-trtc data.csv")
 nass.sx.trtc<-fread("data-raw/sockeye-nass-trtc data.csv")
 
@@ -59,7 +59,7 @@ knitr::include_graphics("figure1-map.jpeg")
 ```
 
 ### Total salmon harvest in Southeast Alaska fisheries, by year and species
-```{r fig-harvest-species, fig.height=10, fig.cap="Southeast Alaska, US (SEAK) total harvest in millions of fish by species for each year for 1979-2021."}
+```{r fig-harvest-species, fig.height=5, fig.cap="Southeast Alaska, US (SEAK) total harvest in millions of fish by species for each year for 1979-2021."}
 make.harvest.byspecies(catch)
 ```
 

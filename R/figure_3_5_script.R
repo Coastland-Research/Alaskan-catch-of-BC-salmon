@@ -46,14 +46,14 @@ make.harvest.value.byspecies <- function(value, catch){
   
   fig5_val <- ggplot(value, aes(x = Year, y = Value / 1e6, fill = Species)) +
     geom_col() +
-    facet_wrap(~Species, nrow = 5) +
+    facet_wrap(~Species, nrow = 5, scales = "free_y") +
     theme_minimal() +
     ylab("US Dollars (millions)") +
     theme(legend.position = "none")
   
   fig5_harv <- ggplot(catch, aes(x = Year, y = `Number.Of.Fish..estimated.` / 1e6, fill = Species)) +
     geom_col() +
-    facet_wrap(~Species, nrow = 5) +
+    facet_wrap(~Species, nrow = 5, scales = "free_y") +
     theme_minimal() +
     ylab("Number of fish (millions)") +
     theme(legend.position = "none")
