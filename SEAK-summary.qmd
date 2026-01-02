@@ -35,11 +35,13 @@ nass.sx.trtc<-fread("data-raw/sockeye-nass-trtc data.csv")
 harvests<-fread("data-raw/SEAK D101-D106 harvest by district by week.csv")
 
 catch <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Species 1985-present Fish Tickets.csv") %>%
-  mutate(Species = factor(`Species.Name`))
+  mutate(Species = factor(`Species.Name`)) %>%
+    filter(Area != "Bristol Bay")
 
 value <- read.csv("data-raw/ADFG AK Harvest and Vaue 1980 2022.csv") %>%
   mutate(Species = factor(`Species.Code`),
-         Value = `Estimated.Exvessel.Value..Nominal.`)
+         Value = `Estimated.Exvessel.Value..Nominal.`) %>%
+  filter(`Salmon.Area.Name` != "Bristol Bay")
 
 #for figures 7-11
 bluesheet <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Species 1985-present Fish Tickets.csv")

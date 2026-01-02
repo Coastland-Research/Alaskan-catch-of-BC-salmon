@@ -1,13 +1,14 @@
 library(tidyverse)
 library(gridExtra)
 
-# figure 3 SEAK harvest by species
+# # figure 3 SEAK harvest by species
 # catch <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Species 1985-present Fish Tickets.csv") %>%
 #   mutate(Species = factor(`Species.Name`))
 # 
 # value <- read.csv("data-raw/ADFG AK Harvest and Vaue 1980 2022.csv") %>%
 #   mutate(Species = factor(`Species.Code`),
-#          Value = `Estimated.Exvessel.Value..Nominal.`)
+#          Value = `Estimated.Exvessel.Value..Nominal.`) %>%
+#   filter(`Salmon.Area.Name` != "Bristol Bay")
 
 make.harvest.byspecies<-function(catch){
   
@@ -60,6 +61,6 @@ make.harvest.value.byspecies <- function(value, catch){
   
   gridExtra::grid.arrange(fig5_harv, fig5_val, nrow = 1)
 }
-# make.harvest.value.byspecies(value, catch)
+#make.harvest.value.byspecies(value, catch)
 
 # ggsave("fig5.png", fig5)
