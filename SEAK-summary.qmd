@@ -22,9 +22,9 @@ library(tidyverse)
 source("R/skeena-sockeye-trtc-cu-akers.R")
 source("R/nass-sockeye-trtc-cu-akers.R")
 
-source("R/figure_3_5_script.R")
+source("R/harvest_and_value_byspecies.R")
 source("R/region1_catchbyarea.R")
-source("R/figure_15_script.R")
+source("R/catch_statweek.R")
 
 ```
 

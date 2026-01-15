@@ -62,5 +62,3 @@ make.harvest.value.byspecies <- function(value, catch){
   gridExtra::grid.arrange(fig5_harv, fig5_val, nrow = 1)
 }
 #make.harvest.value.byspecies(value, catch)
-
-# ggsave("fig5.png", fig5)
