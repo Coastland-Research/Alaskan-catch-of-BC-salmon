@@ -1,27 +1,25 @@
 # SEAK sockeye figure 9 - Canada (red), US (blue), and Total (black) marine commercial catch 
 # in Southeast Alaska and DFO areas 3/4/5 for Skeena and Nass sockeye. 1982-2021
-library(tidyverse)
 
 # Skeena Sockeye
-skeena <- read.csv("data-raw/sockeye-skeena-trtc data.csv", check.names = FALSE)
-
-skeena$USharvest = skeena$`Total Harvest`-skeena$`CDN Harvest`
-skeena$USer = skeena$USharvest/skeena$`Total Run`
-skeena$CDNer = skeena$`CDN Harvest`/skeena$`Total Run`
-skeena$Totalharvest = skeena$USharvest+skeena$`CDN Harvest`
-skeena$USp = skeena$USharvest/skeena$`Total Harvest`
-skeena$CDNp = skeena$`CDN Harvest`/skeena$`Total Harvest`
+make.sk.marine.catch.plot <- function(skeena.sx.trtc) {
+  skeena.sx.trtc$USharvest = skeena.sx.trtc$`Total Harvest`-skeena.sx.trtc$`CDN Harvest`
+  skeena.sx.trtc$USer = skeena.sx.trtc$USharvest/skeena.sx.trtc$`Total Run`
+  skeena.sx.trtc$CDNer = skeena.sx.trtc$`CDN Harvest`/skeena.sx.trtc$`Total Run`
+  skeena.sx.trtc$Totalharvest = skeena.sx.trtc$USharvest+skeena.sx.trtc$`CDN Harvest`
+  skeena.sx.trtc$USp = skeena.sx.trtc$USharvest/skeena.sx.trtc$`Total Harvest`
+  skeena.sx.trtc$CDNp = skeena.sx.trtc$`CDN Harvest`/skeena.sx.trtc$`Total Harvest`
   
-skeena_catch <- skeena %>%
+  skeena_catch <- skeena.sx.trtc %>%
   select(StatArea, Year, USharvest, `CDN Harvest`) %>%
   pivot_longer(3:4,names_to="Fishery",values_to="Catch")
-
-skeena_catch_sum <- skeena_catch %>%
+  
+  skeena_catch_sum <- skeena_catch %>%
   group_by(Year, Fishery) %>%
   summarise(Catch = sum(Catch, na.rm = TRUE), .groups = "drop") %>%
   filter(Year >= 1960)
-
-skeena_us_cdn <- ggplot(
+  
+  skeena_us_cdn <- ggplot(
   skeena_catch_sum,
   aes(x = Year, y = Catch / 1000, color = Fishery)) +
   scale_x_continuous(breaks = seq(1960, 2030, by = 10))+
@@ -32,59 +30,27 @@ skeena_us_cdn <- ggplot(
        title=paste0("US and CDN Total Catch of Skeena sockeye"))+
   scale_colour_manual(values=c("red","blue")) 
   
-skeena_us_cdn
-
-# code for old dataset:
-# totsn<-read.csv("data-raw/SX Skeena Nass ERs US CDN.csv", check.names = FALSE)
-
-# sk_us_cdn <- ggplot(skeena_catch,aes(x=Year,y=Catch/1000,color=Fishery))+
-#   geom_point(alpha=.5)+geom_line(alpha=.5)+
-#   theme_bw()+
-#   scale_colour_manual(values=c("red","blue"))+
-#   # facet_wrap(~Area,ncol=1,scales="free_y")+
-#   labs(x="Year",y="Catch (Thousands)",
-#        title=paste0("US and CDN Total Catch of Skeena sockeye"))+
-#   theme(legend.position ="right")
-
-# totsn$USer=totsn$US.Catch/totsn$Total.Return
-# totsn$CDNer=totsn$CDN.Catch/totsn$Total.Return
-# totsn$Total.Catch=totsn$US.Catch+totsn$CDN.Catch
-# totsn$USp=totsn$US.Catch/totsn$Total.Catch
-# totsn$CDNp=totsn$CDN.Catch/totsn$Total.Catch
-
-# tot.catch<-totsn%>%select(Area,Year,US.Catch,CDN.Catch)%>%
-#   pivot_longer(3:4,names_to="Fishery",values_to="Catch")
-# tot.catch.skeena <- tot.catch %>%
-#   filter(Area == "Skeena")
-  
-# sk_us_cdn <- ggplot(tot.catch.skeena,aes(x=Year,y=Catch/1000,color=Fishery))+
-#   geom_point(alpha=.5)+geom_line(alpha=.5)+
-#   theme_bw()+
-#   scale_colour_manual(values=c("red","blue"))+
-#   # facet_wrap(~Area,ncol=1,scales="free_y")+
-#   labs(x="Year",y="Catch (Thousands)",
-#        title=paste0("US and CDN Total Catch of Skeena sockeye"))+
-#   theme(legend.position ="right")
+  skeena_us_cdn
+}
 
 #Nass region
-
-nass <- read.csv("data-raw/sockeye-nass-trtc data.csv", check.names = FALSE)
-nass$USharvest = nass$`Total Harvest`-nass$`CDN Harvest`
-nass$USer = nass$USharvest/nass$`Total Run`
-nass$CDNer = nass$`CDN Harvest`/nass$`Total Run`
-nass$Totalharvest = nass$USharvest+nass$`CDN Harvest`
-nass$USp = nass$USharvest/nass$`Total Harvest`
-nass$CDNp = nass$`CDN Harvest`/nass$`Total Harvest`
-
-nass_catch <- nass %>%
+make.nass.marine.catch.plot <- function(nass.sx.trtc) {
+  nass.sx.trtc$USharvest = nass.sx.trtc$`Total Harvest`-nass.sx.trtc$`CDN Harvest`
+  nass.sx.trtc$USer = nass.sx.trtc$USharvest/nass.sx.trtc$`Total Run`
+  nass.sx.trtc$CDNer = nass.sx.trtc$`CDN Harvest`/nass.sx.trtc$`Total Run`
+  nass.sx.trtc$Totalharvest = nass.sx.trtc$USharvest+nass.sx.trtc$`CDN Harvest`
+  nass.sx.trtc$USp = nass.sx.trtc$USharvest/nass.sx.trtc$`Total Harvest`
+  nass.sx.trtc$CDNp = nass.sx.trtc$`CDN Harvest`/nass.sx.trtc$`Total Harvest`
+  
+  nass_catch <- nass.sx.trtc %>%
   select(StatArea, Year, USharvest, `CDN Harvest`) %>%
   pivot_longer(3:4,names_to="Fishery",values_to="Catch")
-
-nass_catch_sum <- nass_catch %>%
+  
+  nass_catch_sum <- nass_catch %>%
   group_by(Year, Fishery) %>%
   summarise(Catch = sum(Catch, na.rm = TRUE), .groups = "drop")
-
-nass_us_cdn <- ggplot(
+  
+  nass_us_cdn <- ggplot(
   nass_catch_sum,
   aes(x = Year, y = Catch / 1000, color = Fishery)) +
   geom_line(alpha = 0.6) +
@@ -93,18 +59,7 @@ nass_us_cdn <- ggplot(
   labs(x="Year",y="Catch (Thousands)",
                title=paste0("US and CDN Total Catch of Nass sockeye"))+
   scale_colour_manual(values=c("red","blue"))
-
-nass_us_cdn
-
-# tot.catch.nass <- tot.catch %>%
-#   filter(Area == "Nass")
-
-# nass_us_cdn <- ggplot(nass_catch,aes(x=Year,y=Catch/1000,color=Fishery, group = Fishery))+
-#   geom_point(alpha=.5)+geom_line(alpha=.5)+
-#   theme_bw()+
-#   scale_colour_manual(values=c("red","blue"))+
-#   # facet_wrap(~Area,ncol=1,scales="free_y")+
-#   labs(x="Year",y="Catch (Thousands)",
-#        title=paste0("US and CDN Total Catch of Nass sockeye"))+
-#   theme(legend.position ="right")
+  
+  nass_us_cdn
+}
 

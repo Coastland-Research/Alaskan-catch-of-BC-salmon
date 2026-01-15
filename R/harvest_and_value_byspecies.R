@@ -2,13 +2,6 @@ library(tidyverse)
 library(gridExtra)
 
 # # figure 3 SEAK harvest by species
-# catch <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Species 1985-present Fish Tickets.csv") %>%
-#   mutate(Species = factor(`Species.Name`))
-# 
-# value <- read.csv("data-raw/ADFG AK Harvest and Vaue 1980 2022.csv") %>%
-#   mutate(Species = factor(`Species.Code`),
-#          Value = `Estimated.Exvessel.Value..Nominal.`) %>%
-#   filter(`Salmon.Area.Name` != "Bristol Bay")
 
 make.harvest.byspecies<-function(catch){
   
@@ -18,8 +11,6 @@ make.harvest.byspecies<-function(catch){
   ylab("Number of fish (millions)") +
   theme(legend.position = "bottom")
 }
-
-# ggsave("fig3.png", fig3)
 
 # figure 5 - SEAK harvest and value broken down by species over years
 
@@ -61,4 +52,3 @@ make.harvest.value.byspecies <- function(value, catch){
   
   gridExtra::grid.arrange(fig5_harv, fig5_val, nrow = 1)
 }
-#make.harvest.value.byspecies(value, catch)
