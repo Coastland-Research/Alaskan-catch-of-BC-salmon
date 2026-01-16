@@ -17,6 +17,7 @@ execute:
 library(data.table)
 library(tidyverse)
 library(ggpubr)
+library(RColorBrewer)
 ```
 
 ```{r source all scripts with functions}
@@ -85,6 +86,7 @@ source("R/sockeye_fig17_script.R")
 source("R/sockeye_fig28_script.R")
 source("R/sockeye_fig31_script.R")
 source("R/sockeye_fig34_script.R")
+source("R/sockeye_fr_stockcomps.R")
 ```
 
 ```{r read sockeye data}
@@ -108,6 +110,8 @@ sa.data<-read.csv("data-raw/NCConlystatareadata.csv")
 data<-read.csv("data-raw/2022-01-10d101.104GSI2006_2018.csv")
 
 regions<-read.csv("data-raw/CatchByRegion2023.csv") 
+
+stockgroups <- read.csv("data-raw/D104_AnnualCatchByStockGroup.csv", check.names=FALSE) 
 
 ```
 
@@ -147,6 +151,10 @@ make.stockcomp.d101104(data)
 
 ```{r fig-catch-byregion, fig.height=8, fig.cap="Canadian (green), Alaskan (red) and Washington (green) catch (top panel), exploitation rate (middle panel) and percent of catch (bottom panel) for Fraser River sockeye from 2000-2022."}
 make.fr.catch.plot(regions)
+```
+
+```{r fig-fr-stockcomps, fig.height=6, fig.cap="Stock composition by Conservation Unit for Fraser sockeye catch from 2000-2021."}
+make.stockcomp.fr(stockgroups)
 ```
 
 ## Skeena

@@ -8,6 +8,7 @@ make.harvest.byspecies<-function(catch){
   ggplot(catch, aes(x = Year, y = (`Number.Of.Fish..estimated.`/1000000), fill = Species)) +
   geom_col() +
   theme_minimal() +
+    scale_fill_brewer(palette = "Spectral")+
   ylab("Number of fish (millions)") +
   theme(legend.position = "bottom")
 }
@@ -40,6 +41,7 @@ make.harvest.value.byspecies <- function(value, catch){
     geom_col() +
     facet_wrap(~Species, nrow = 5, scales = "free_y") +
     theme_minimal() +
+    scale_fill_brewer(palette = "Spectral")+
     ylab("US Dollars (millions)") +
     theme(legend.position = "none")
   
@@ -47,6 +49,7 @@ make.harvest.value.byspecies <- function(value, catch){
     geom_col() +
     facet_wrap(~Species, nrow = 5, scales = "free_y") +
     theme_minimal() +
+    scale_fill_brewer(palette = "Spectral")+
     ylab("Number of fish (millions)") +
     theme(legend.position = "none")
   
