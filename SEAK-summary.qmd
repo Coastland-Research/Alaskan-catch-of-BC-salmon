@@ -16,6 +16,7 @@ execute:
 ```{r}
 library(data.table)
 library(tidyverse)
+library(ggpubr)
 ```
 
 ```{r source all scripts with functions}
@@ -83,7 +84,7 @@ source("R/sockeye_fig15_script.R")
 source("R/sockeye_fig17_script.R")
 source("R/sockeye_fig28_script.R")
 source("R/sockeye_fig31_script.R")
-
+source("R/sockeye_fig34_script.R")
 ```
 
 ```{r read sockeye data}
@@ -105,6 +106,8 @@ sn<-read.csv("data-raw/skeena nass ak fishery ers.csv",header=TRUE,
 sa.data<-read.csv("data-raw/NCConlystatareadata.csv")
 
 data<-read.csv("data-raw/2022-01-10d101.104GSI2006_2018.csv")
+
+regions<-read.csv("data-raw/CatchByRegion2023.csv") 
 
 ```
 
@@ -140,6 +143,10 @@ make.ers.area5(sa.data)
 
 ```{r fig-stockcomp, fig.height=8, fig.cap="Weekly stock composition of sockeye in the District 101 commercial gillnet and 104 commercial purse seine fisheries for 2016-2018. Estimates are based on genetic stock ID."}
 make.stockcomp.d101104(data)
+```
+
+```{r fig-catch-byregion, fig.height=8, fig.cap="Canadian (green), Alaskan (red) and Washington (green) catch (top panel), exploitation rate (middle panel) and percent of catch (bottom panel) for Fraser River sockeye from 2000-2022."}
+make.fr.catch.plot(regions)
 ```
 
 ## Skeena
