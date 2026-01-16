@@ -163,10 +163,6 @@ make.stockcomp.fr(stockgroups)
 
 Information on Alaskan exploitation of Skeena sockeye comes primarily from the Northern Boundary Sockeye Run Reconstruction model, which uses estimated run-timing and migration route to provide estimates of interception rates in Alaska fisheries. We show time-series of Alaskan exploitation rates for each Skeena sockeye Conservation Unit with information (@fig-skeena-trtc1) and the distribution of exploitation rates (@fig-skeena-trtc2).
 
-## Nass
-Information on Alaskan exploitation of Nass sockeye comes primarily from the Northern Boundary Sockeye Run Reconstruction model, which uses estimated run-timing and migration route to provide estimates of interception rates in Alaska fisheries. We show timeseries of Alaskan exploitation rates for each Nass sockeye Conservation Unit with information (@fig-nass-trtc1) and the distribution of exploitation rates by CU (@fig-nass-trtc2).
-
-
 ```{r fig-skeena-trtc1, fig.height=10,fig.cap="Alaskan exploitation rates for each Skeena sockeye Conservation Unit (1960-2023)."}
 
 make.skeena.trtc.lineplot(skeena.sx.trtc)
@@ -179,6 +175,8 @@ make.skeena.trtc.boxplot(skeena.sx.trtc)
 
 ```
 
+## Nass
+Information on Alaskan exploitation of Nass sockeye comes primarily from the Northern Boundary Sockeye Run Reconstruction model, which uses estimated run-timing and migration route to provide estimates of interception rates in Alaska fisheries. We show timeseries of Alaskan exploitation rates for each Nass sockeye Conservation Unit with information (@fig-nass-trtc1) and the distribution of exploitation rates by CU (@fig-nass-trtc2).
 
 ```{r fig-nass-trtc1,fig.height=5,fig.cap="Alaskan exploitation on Nass sockeye by CU."}
 
@@ -196,6 +194,18 @@ make.sockeye.bluesheet(bluesheet)
 ```
 
 # Chinook 
+```{r source chinook scripts}
+source("R/chinook_bluesheet_catch.R")
+```
+
+```{r read chinook data}
+data <-read.csv("data-raw/2021-12-12_1980-2020 SE Harvest BY Fishery_LONG.csv", check.names = FALSE)
+
+```
+
+```{r fig-cn-boxplot, fig.height=6, fig.cap="Distribution of total Chinook salmon commercial catch in SEAK Blue Sheet fisheries from 1980-2021."}
+make.cn.blusheet.box(data)
+```
 
 ```{r fig-cn-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Chinook by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.chinook.bluesheet(bluesheet)
