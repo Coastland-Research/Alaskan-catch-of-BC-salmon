@@ -115,7 +115,7 @@ stockgroups <- read.csv("data-raw/D104_AnnualCatchByStockGroup.csv", check.names
 
 ```
 
-```{r fig-sx-catch-bydistrict, fig.height=6, fig.cap="SSEAK sockeye catch by district (1985-2021)."}
+```{r fig-sx-catch-bydistrict, fig.height=6, fig.cap="Total catch of sockeye salmon by year for SSEAK Districts 101-106 (1985-2021). Smoothed lines are derived by LOESS with standard errors shown in grey."}
 make.catch.bydistrict(sk_annual)
 ```
 
@@ -196,10 +196,13 @@ make.sockeye.bluesheet(bluesheet)
 # Chinook 
 ```{r source chinook scripts}
 source("R/chinook_bluesheet_catch.R")
+source("R/chinook_catch_bydistrict.R")
 ```
 
 ```{r read chinook data}
 data <-read.csv("data-raw/2021-12-12_1980-2020 SE Harvest BY Fishery_LONG.csv", check.names = FALSE)
+
+districts<-read.csv("data-raw/SEAK harvest by district 85-21.csv", check.names = FALSE)
 
 ```
 
@@ -210,6 +213,12 @@ make.cn.blusheet.box(data)
 ```{r fig-cn-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Chinook by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.chinook.bluesheet(bluesheet)
 ```
+
+```{r fig-cn-catch-bydistrict, fig.height=6, fig.cap = "Total catch of Chinook salmon by year for SSEAK Districts 101-106 (1985-2021). Smoothed lines are derived by LOESS with standard errors shown in grey."}
+
+make.cn.districts.plot(districts)
+```
+
 # Coho
 
 ```{r fig-co-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Coho by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
