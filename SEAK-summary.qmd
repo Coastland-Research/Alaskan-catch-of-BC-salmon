@@ -197,12 +197,15 @@ make.sockeye.bluesheet(bluesheet)
 ```{r source chinook scripts}
 source("R/chinook_bluesheet_catch.R")
 source("R/chinook_catch_bydistrict.R")
+source("R/chinook_exploitation_sa.R")
 ```
 
 ```{r read chinook data}
 data <-read.csv("data-raw/2021-12-12_1980-2020 SE Harvest BY Fishery_LONG.csv", check.names = FALSE)
 
 districts<-read.csv("data-raw/SEAK harvest by district 85-21.csv", check.names = FALSE)
+
+sa.data<-fread("data-raw/NCConlystatareadata.csv")
 
 ```
 
@@ -217,6 +220,10 @@ make.chinook.bluesheet(bluesheet)
 ```{r fig-cn-catch-bydistrict, fig.height=6, fig.cap = "Total catch of Chinook salmon by year for SSEAK Districts 101-106 (1985-2021). Smoothed lines are derived by LOESS with standard errors shown in grey."}
 
 make.cn.districts.plot(districts)
+```
+
+```{r fig-cn-er-statarea, fig.height=8, fig.cap="SEAK (red) and Canadian (blue) exploitation rates by year for north and central coast (Statistical Areas 1-10) Chinook salmon from 1985-2017. Source: LGL 2021a."}
+make.cn.ers.plot(sa.data)
 ```
 
 # Coho
