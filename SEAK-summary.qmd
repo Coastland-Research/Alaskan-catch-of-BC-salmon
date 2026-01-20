@@ -199,6 +199,7 @@ source("R/chinook_bluesheet_catch.R")
 source("R/chinook_catch_bydistrict.R")
 source("R/chinook_exploitation_sa.R")
 source("R/chinook_er_cu.R")
+source("R/chinook_seak_er_ctc.R")
 ```
 
 ```{r read chinook data}
@@ -209,6 +210,8 @@ districts<-read.csv("data-raw/SEAK harvest by district 85-21.csv", check.names =
 sa.data<-fread("data-raw/NCConlystatareadata.csv")
 
 seak_er<-fread("data-raw/NC_TRTC_2019_04_04.txt")
+
+cn_new <- fread("data-raw/cn_all_mort_new2025.csv")
 
 ```
 
@@ -232,6 +235,10 @@ make.cn.ers.plot(sa.data)
 ```{r fig-cn-er-cu, fig.height=8, fig.cap="SEAK exploitation rates for Chinook salmon from north and central coast Conservation Units from 1954-2017. Trend lines derived using LOESS in R. Source: PSF 2021."}
 
 make.cn.er.cu(seak_er)
+```
+
+```{r fig-cn-seak-ctc, fig.height=8, fig.cap="Total SEAK exploitation rates for Canadian (excluding Transboundary stocks) CTC indicator stocks by year (1979-2023). Trend lines derived using LOESS in R. Source: PSC CTC 2025."}
+make.cn.seak.ctc(cn_new)
 ```
 
 # Coho
