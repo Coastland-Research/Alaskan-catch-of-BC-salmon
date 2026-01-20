@@ -18,6 +18,8 @@ library(data.table)
 library(tidyverse)
 library(ggpubr)
 library(RColorBrewer)
+library(grid)
+library(gridExtra)
 ```
 
 ```{r source all scripts with functions}
