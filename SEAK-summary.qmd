@@ -190,8 +190,7 @@ make.nass.trtc.lineplot(nass.sx.trtc)
 make.nass.trtc.boxplot(nass.sx.trtc)
 ```
 
-
-```{r fig-sk-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Sockeye by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
+```{r fig-sk-bs-fishery, fig.height=8, fig.cap= "Southeast Alaska, US (SEAK) harvest of Sockeye by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.sockeye.bluesheet(bluesheet)
 ```
 
@@ -221,10 +220,6 @@ cn_new <- fread("data-raw/cn_all_mort_new2025.csv")
 make.cn.blusheet.box(data)
 ```
 
-```{r fig-cn-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Chinook by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
-make.chinook.bluesheet(bluesheet)
-```
-
 ```{r fig-cn-catch-bydistrict, fig.height=6, fig.cap = "Total catch of Chinook salmon by year for SSEAK Districts 101-106 (1985-2021). Smoothed lines are derived by LOESS with standard errors shown in grey."}
 
 make.cn.districts.plot(districts)
@@ -243,21 +238,44 @@ make.cn.er.cu(seak_er)
 make.cn.seak.ctc(cn_new)
 ```
 
-# Coho
+```{r fig-cn-bs-fishery, fig.height=8, fig.cap= "Southeast Alaska, US (SEAK) harvest of Chinook by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
+make.chinook.bluesheet(bluesheet)
+```
 
-```{r fig-co-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Coho by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
+# Coho
+```{r source coho scripts}
+source("R/coho_seak_cdn_ers.R")
+source("R/coho-seak-er-cu.R")
+```
+
+```{r coho data}
+data<-fread("data-raw/NC_TRTC_2019_04_04.txt")
+
+```
+
+```{r fig-co-ers, fig.height=8, fig.cap = "SEAK (red) and Canadian (blue) exploitation rates by year for north and central coast (Statistical Areas 1-10) coho salmon from 1954-2017. Source: LGL 2021a."}
+make.co.ers.plot(sa.data)
+```
+
+
+```{r fig-co-bs-fishery, fig.height=8, fig.cap= "Southeast Alaska, US (SEAK) harvest of Coho by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.coho.bluesheet(bluesheet)
 ```
 
+```{r fig-co-seak-er-cu, fig.height=8, fig.cap="SEAK exploitation rates for coho salmon from north and central coast Conservation Units from 1954- 2017. Trend lines derived using LOESS in R. Source: PSF 2021."}
+make.co.seak.ers(data)
+```
+
+
 # Chum
 
-```{r fig-cm-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Chum by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
+```{r fig-cm-bs-fishery, fig.height=8, fig.cap= "Southeast Alaska, US (SEAK) harvest of Chum by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.chum.bluesheet(bluesheet)
 ```
 
 # Pink
 
-```{r fig-pk-bs-fishery, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest of Pink Salmon by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
+```{r fig-pk-bs-fishery, fig.height=8, fig.cap= "Southeast Alaska, US (SEAK) harvest of Pink Salmon by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.pink.bluesheet(bluesheet)
 ```
 
