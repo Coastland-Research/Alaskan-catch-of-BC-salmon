@@ -284,6 +284,7 @@ make.coho.bluesheet(bluesheet)
 ```{r source chum scripts}
 source("R/chum_seak_harvest.R")
 source("R/chum_seak_bydistrict.R")
+source("R/chum_seak_cdn_ers_sa.R")
 ```
 
 ```{r chum data}
@@ -298,6 +299,10 @@ make.chum.harv.plot(harv)
 
 ```{r fig-chum-seak-district, fig.height=6, fig.cap="Total catch of chum salmon by year for SSEAK Districts 101-106 (1985-2021). Smoothed lines are derived by LOESS with standard errors shown in grey. Source: ADFG 2021d."}
 make.chum.harv.bydist(data)
+```
+
+```{r fig-chum-ers-sa, fig.height=8, fig.cap="SEAK (red) and Canadian (blue) exploitation rates by year for north and central coast (Statistical Areas 1-10) chum salmon from 1954-2017. Source: PSF 2021."}
+make.chum.ers.sa(sa.data)
 ```
 
 ```{r fig-cm-bs-fishery, fig.height=8, fig.cap= "Southeast Alaska, US (SEAK) harvest of Chum by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
