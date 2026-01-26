@@ -38,7 +38,7 @@ make.chum.ers.sa <- function(sa.data){
   geom_point()+geom_line()+
   theme_bw()+
   facet_wrap(~`StatArea/CU`)+
-  labs(color="Region",y="Exploitation Rate",title=paste0("SEAK and CDN Exploitation Rates"),
+  labs(color="Region",y="Exploitation Rate",title=paste0("SEAK and CDN Exploitation Rates by Stat Area"),
        subtitle=(paste0(sp," (",min.year,"-2017)")))+
   scale_colour_manual(values=c("#377EB8","#E41A1C"),labels=c("CDN","SEAK"),breaks=c("CDN ER","AK ER"))
 }
