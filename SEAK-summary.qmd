@@ -316,6 +316,17 @@ make.chum.bluesheet(bluesheet)
 ```
 
 # Pink
+```{r source pink scripts}
+source("R/pink_seak_harv.R")
+```
+
+```{r pink data}
+
+```
+
+```{r fig-pink-seak-harv, fig.height=6, fig.cap="SEAK catch (millions of fish) of pink salmon from 1979-2021. Source: ADFG 2021a (1979-2020), ADFG 2021b (2021)."}
+make.pink.harv(harv)
+```
 
 ```{r fig-pk-bs-fishery, fig.height=8, fig.cap= "Southeast Alaska, US (SEAK) harvest of Pink Salmon by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.pink.bluesheet(bluesheet)
