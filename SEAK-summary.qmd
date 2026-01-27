@@ -319,7 +319,9 @@ make.chum.bluesheet(bluesheet)
 ```{r source pink scripts}
 source("R/pink_seak_harv.R")
 source("R/pink_seak_harv_dist.R")
-source("R/pink_ers_sa.R")
+source("R/pinkeven_ers_sa.R")
+source("R/pinkodd_ers_sa.R")
+source("R/pink_seak_er_cu.R")
 ```
 
 ```{r pink data}
@@ -337,6 +339,14 @@ pink.seak.harv.bydistrict(data)
 
 ```{r fig-pink-ers-sa, fig.height=8, fig.cap="SSEAK (red) and Canadian (blue) exploitation rates by year for north and central coast (Statistical Areas 1-10) even-year pink salmon from 1954-2017. Source: PSF 2021."}
 make.pink.ers.sa(sa.data)
+```
+
+```{r fig-pinkodd-ers-sa, fig.height=8, fig.cap="SSEAK (red) and Canadian (blue) exploitation rates by year for north and central coast (Statistical Areas 1-10) odd-year pink salmon from 1954-2017. Source: PSF 2021."}
+make.pink.odd.ers.sa(sa.data)
+```
+
+```{r fig-pink-seak-er-cu, fig.height=8, fig.cap="SSEAK exploitation rates for even (red points) and odd (blue points) year pink salmon from north and central coast Conservation Units from 1954-2017. Trend lines derived using LOESS in R. Source: PSF 2021."}
+pink.seak.er.cu(er_cu)
 ```
 
 ```{r fig-pk-bs-fishery, fig.height=8, fig.cap= "Southeast Alaska, US (SEAK) harvest of Pink Salmon by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
