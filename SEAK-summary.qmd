@@ -20,6 +20,7 @@ library(ggpubr)
 library(RColorBrewer)
 library(grid)
 library(gridExtra)
+library(readxl)
 ```
 
 ```{r source all scripts with functions}
@@ -58,6 +59,7 @@ knitr::include_graphics("figure1-map.jpeg")
 ```
 
 ### Total salmon harvest in Southeast Alaska fisheries, by year and species
+
 ```{r fig-harvest-species, fig.height=5, fig.cap="Southeast Alaska, US (SEAK) total harvest in millions of fish by species for each year for 1979-2021."}
 make.harvest.byspecies(catch)
 ```
@@ -69,11 +71,11 @@ make.harvest.value.byspecies(value, catch)
 
 ### 2023 Southeast Alaska harvest by statistical week, broken down by district, species, and gear type.
 ```{r fig-catch-statweek, fig.height=6, fig.cap="Harvest by species, gear type, district, and statistical week."}
-
 make.catch.statweek.plot(harvests)
 ```
 
 # Sockeye
+
 ```{r source sockeye scripts}
 source("R/sockeye/sockeye_fig6_script.R")
 source("R/sockeye/sockeye_fig9_script.R")
@@ -350,12 +352,24 @@ make.pink.bluesheet(bluesheet)
 
 # Transboundary
 ```{r read TBR data}
-
+d106 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.106.harvest")
+d108 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.106.harvest")
+d111 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.D111harvest")
 ```
 
 ```{r source TBR scripts}
-
+source("R/TBR_106_108_catch.R")
+source("R/TBR_111_gncatch.R")
 ```
+
+```{r fig-tbr-106108-catch, fig.height=8, fig.cap="SEAK catch of all salmon species in Districts 106 and 108, 1960-2023."}
+make.tbr.106108.catch(d106, d108)
+```
+
+```{r fig-tbr-111-gncatch, fig.height=8, fig.cap="SEAK commercial gillnet catch of all salmon species in District 111, 1960-2023."}
+make.tbr.d111.gncatch(d111)
+```
+
 
 # Steelhead
 
