@@ -23,8 +23,8 @@ library(gridExtra)
 ```
 
 ```{r source all scripts with functions}
-source("R/skeena-sockeye-trtc-cu-akers.R")
-source("R/nass-sockeye-trtc-cu-akers.R")
+source("R/sockeye/skeena-sockeye-trtc-cu-akers.R")
+source("R/sockeye/nass-sockeye-trtc-cu-akers.R")
 
 source("R/harvest_and_value_byspecies.R")
 source("R/region1_catchbyarea.R")
@@ -33,22 +33,16 @@ source("R/catch_statweek.R")
 ```
 
 ```{r read in all data}
-skeena.sx.trtc<-fread("data-raw/sockeye-skeena-trtc data.csv")
-nass.sx.trtc<-fread("data-raw/sockeye-nass-trtc data.csv")
+skeena.sx.trtc<-fread("data-raw/sockeye/sockeye-skeena-trtc data.csv")
+nass.sx.trtc<-fread("data-raw/sockeye/sockeye-nass-trtc data.csv")
 
-harvests<-fread("data-raw/SEAK D101-D106 harvest by district by week.csv")
+harvests<-fread("data-raw/SEAK_catch/SEAK D101-D106 harvest by district by week.csv")
 
-catch <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Species 1985-present Fish Tickets.csv") %>%
-  mutate(Species = factor(`Species.Name`)) %>%
-    filter(Area != "Bristol Bay")
+catch <- read.csv("data-raw/SEAK_catch/Alaska Statewide Salmon Landings by Area and Species 1985-present Fish Tickets.csv")
 
-value <- read.csv("data-raw/ADFG AK Harvest and Vaue 1980 2022.csv") %>%
-  mutate(Species = factor(`Species.Code`),
-         Value = `Estimated.Exvessel.Value..Nominal.`) %>%
-  filter(`Salmon.Area.Name` != "Bristol Bay")
+value <- read.csv("data-raw/SEAK_catch/ADFG AK Harvest and Vaue 1980 2022.csv")
 
-#for figures 7-11
-bluesheet <- read.csv("data-raw/Alaska Statewide Salmon Landings by Area and Species 1985-present Fish Tickets.csv")
+bluesheet <- read.csv("data-raw/SEAK_catch/Alaska Statewide Salmon Landings by Area and Species 1985-present Fish Tickets.csv")
 
 ```
 
@@ -81,18 +75,18 @@ make.catch.statweek.plot(harvests)
 
 # Sockeye
 ```{r source sockeye scripts}
-source("R/sockeye_fig6_script.R")
-source("R/sockeye_fig9_script.R")
-source("R/sockeye_fig15_script.R")
-source("R/sockeye_fig17_script.R")
-source("R/sockeye_fig28_script.R")
-source("R/sockeye_fig31_script.R")
-source("R/sockeye_fig34_script.R")
-source("R/sockeye_fr_stockcomps.R")
+source("R/sockeye/sockeye_fig6_script.R")
+source("R/sockeye/sockeye_fig9_script.R")
+source("R/sockeye/sockeye_fig15_script.R")
+source("R/sockeye/sockeye_fig17_script.R")
+source("R/sockeye/sockeye_fig28_script.R")
+source("R/sockeye/sockeye_fig31_script.R")
+source("R/sockeye/sockeye_fig34_script.R")
+source("R/sockeye/sockeye_fr_stockcomps.R")
 ```
 
 ```{r read sockeye data}
-sk_harv <- read.csv("data-raw/SEAK D101-D106 harvest by district by week.csv") %>%
+sk_harv <- read.csv("data-raw/SEAK_catch/SEAK D101-D106 harvest by district by week.csv") %>%
   filter(`Species.Name` == "Sockeye Salmon") %>%
   filter(`Number.Of.Fish..estimated.` != "Confidential") %>%
   mutate(`Number.Of.Fish..estimated.` = as.numeric (`Number.Of.Fish..estimated.`))
@@ -196,11 +190,11 @@ make.sockeye.bluesheet(bluesheet)
 
 # Chinook 
 ```{r source chinook scripts}
-source("R/chinook_bluesheet_catch.R")
-source("R/chinook_catch_bydistrict.R")
-source("R/chinook_exploitation_sa.R")
-source("R/chinook_er_cu.R")
-source("R/chinook_seak_er_ctc.R")
+source("R/chinook/chinook_bluesheet_catch.R")
+source("R/chinook/chinook_catch_bydistrict.R")
+source("R/chinook/chinook_exploitation_sa.R")
+source("R/chinook/chinook_er_cu.R")
+source("R/chinook/chinook_seak_er_ctc.R")
 ```
 
 ```{r read chinook data}
@@ -212,7 +206,7 @@ sa.data<-fread("data-raw/NCConlystatareadata.csv")
 
 seak_er<-fread("data-raw/NC_TRTC_2019_04_04.txt")
 
-cn_new <- fread("data-raw/cn_all_mort_new2025.csv")
+cn_new <- fread("data-raw/chinook/cn_all_mort_new2025.csv")
 
 ```
 
@@ -244,9 +238,9 @@ make.chinook.bluesheet(bluesheet)
 
 # Coho
 ```{r source coho scripts}
-source("R/coho_seak_cdn_ers.R")
-source("R/coho-seak-er-cu.R")
-source("R/coho_zolzap_ers.R")
+source("R/coho/coho_seak_cdn_ers.R")
+source("R/coho/coho-seak-er-cu.R")
+source("R/coho/coho_zolzap_ers.R")
 ```
 
 ```{r coho data}
@@ -282,14 +276,14 @@ make.coho.bluesheet(bluesheet)
 # Chum
 
 ```{r source chum scripts}
-source("R/chum_seak_harvest.R")
-source("R/chum_seak_bydistrict.R")
-source("R/chum_seak_cdn_ers_sa.R")
-source("R/chum_seak_er_bycu.R")
+source("R/chum/chum_seak_harvest.R")
+source("R/chum/chum_seak_bydistrict.R")
+source("R/chum/chum_seak_cdn_ers_sa.R")
+source("R/chum/chum_seak_er_bycu.R")
 ```
 
 ```{r chum data}
-harv<-fread("data-raw/ADFG AK Harvest and Vaue 1980 2022.csv")
+harv<-fread("data-raw/SEAK_catch/ADFG AK Harvest and Vaue 1980 2022.csv")
 data<-fread("data-raw/SEAK harvest by district 85-21.csv")
 er_cu<-fread("data-raw/NC_TRTC_2019_04_04.txt")
 ```
@@ -317,11 +311,11 @@ make.chum.bluesheet(bluesheet)
 
 # Pink
 ```{r source pink scripts}
-source("R/pink_seak_harv.R")
-source("R/pink_seak_harv_dist.R")
-source("R/pinkeven_ers_sa.R")
-source("R/pinkodd_ers_sa.R")
-source("R/pink_seak_er_cu.R")
+source("R/pink/pink_seak_harv.R")
+source("R/pink/pink_seak_harv_dist.R")
+source("R/pink/pinkeven_ers_sa.R")
+source("R/pink/pinkodd_ers_sa.R")
+source("R/pink/pink_seak_er_cu.R")
 ```
 
 ```{r pink data}

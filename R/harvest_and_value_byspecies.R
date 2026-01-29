@@ -1,9 +1,10 @@
-library(tidyverse)
-library(gridExtra)
-
-# # figure 3 SEAK harvest by species
+# figure 3 SEAK harvest by species
 
 make.harvest.byspecies<-function(catch){
+  
+  catch <- catch%>%
+    mutate(Species = factor(`Species.Name`)) %>%
+    filter(Area != "Bristol Bay")
   
   ggplot(catch, aes(x = Year, y = (`Number.Of.Fish..estimated.`/1000000), fill = Species)) +
   geom_col() +
@@ -15,27 +16,14 @@ make.harvest.byspecies<-function(catch){
 
 # figure 5 - SEAK harvest and value broken down by species over years
 
-# make.harvest.value.byspecies<-function(data){
-#   
-#   fig5_val <- ggplot(value, aes(x = Year, y = (Value/1000000), fill = Species)) +
-#   geom_col() +
-#   facet_wrap(~Species, nrow = 5) +
-#   theme_minimal() +
-#   ylab("US Dollars (millions)") +
-#   theme(legend.position = "")
-#   
-#   fig5_harv <- ggplot(catch, aes(x = Year, y = (`Number.Of.Fish..estimated.`/1000000), fill = Species)) +
-#   geom_col() +
-#   facet_wrap(~Species, nrow = 5) +
-#   theme_minimal() +
-#   ylab("Number of fish (millions)") +
-#   theme(legend.position = "")
-#   
-#   grid.arrange(fig5_harv, fig5_val, nrow = 1)
-#   # arrangeGrob(fig5_harv, fig5_val, nrow = 1)
-# }
-
 make.harvest.value.byspecies <- function(value, catch){
+  catch <- catch%>%
+    mutate(Species = factor(`Species.Name`)) %>%
+    filter(Area != "Bristol Bay")
+  value <- value %>%
+    mutate(Species = factor(`Species.Code`),
+           Value = `Estimated.Exvessel.Value..Nominal.`) %>%
+    filter(`Salmon.Area.Name` != "Bristol Bay")
   
   fig5_val <- ggplot(value, aes(x = Year, y = Value / 1e6, fill = Species)) +
     geom_col() +
