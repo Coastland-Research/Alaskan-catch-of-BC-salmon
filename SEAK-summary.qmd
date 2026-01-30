@@ -361,6 +361,7 @@ stikine.cn<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.stik
 ```
 
 ```{r source TBR scripts}
+library(patchwork)
 source("R/TBR_106_108_catch.R")
 source("R/TBR_111_gncatch.R")
 source("R/TBR_stikine_chinook.R")
@@ -375,7 +376,9 @@ make.tbr.106108.catch(d106, d108)
 make.tbr.d111.gncatch(d111)
 ```
 
-
+```{r fig-stikine-chinook, fig.height=8, fig.cap="Stikine River Chinook salmon Canadian harvest, US harvest, and escapement (top panel), Canadian vs US harvest (middle panel), and Canadian and US percent of total harvest (bottom panel), 1996-2023."}
+make.stikine.cn.plot(stikine.cn)
+```
 # Steelhead
 
 ## Appendix 1: Pacific Salmon Commission Chinook Technical Committee Mortality Distribution Tables
