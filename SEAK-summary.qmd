@@ -21,12 +21,10 @@ library(RColorBrewer)
 library(grid)
 library(gridExtra)
 library(readxl)
+library(patchwork)
 ```
 
-```{r source all scripts with functions}
-source("R/sockeye/skeena-sockeye-trtc-cu-akers.R")
-source("R/sockeye/nass-sockeye-trtc-cu-akers.R")
-
+```{r source SEAK scripts with functions}
 source("R/harvest_and_value_byspecies.R")
 source("R/region1_catchbyarea.R")
 source("R/catch_statweek.R")
@@ -58,18 +56,18 @@ knitr::include_graphics("figure1-map.jpeg")
 
 ```
 
-### Total salmon harvest in Southeast Alaska fisheries, by year and species
+### Total salmon harvest in Southeast Alaska fisheries by year and species
 
 ```{r fig-harvest-species, fig.height=5, fig.cap="Southeast Alaska, US (SEAK) total harvest in millions of fish by species for each year for 1979-2021."}
 make.harvest.byspecies(catch)
 ```
 
-### Total salmon harvest and total value in Southeast Alaska fisheries, by year and species
+### Total salmon harvest and total value in Southeast Alaska fisheries by year and species
 ```{r fig-seak-value, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest (millions of fish) and value (millions of US Dollars) by species from 1985-2023."}
 make.harvest.value.byspecies(value, catch)
 ```
 
-### 2023 Southeast Alaska harvest by statistical week, broken down by district, species, and gear type.
+### 2023 Southeast Alaska harvest by statistical week, broken down by district, species, and gear type
 ```{r fig-catch-statweek, fig.height=6, fig.cap="Harvest by species, gear type, district, and statistical week."}
 make.catch.statweek.plot(harvests)
 ```
@@ -77,26 +75,21 @@ make.catch.statweek.plot(harvests)
 # Sockeye
 
 ```{r source sockeye scripts}
-source("R/sockeye/sockeye_fig6_script.R")
-source("R/sockeye/sockeye_fig9_script.R")
-source("R/sockeye/sockeye_fig15_script.R")
-source("R/sockeye/sockeye_fig17_script.R")
-source("R/sockeye/sockeye_fig28_script.R")
-source("R/sockeye/sockeye_fig31_script.R")
-source("R/sockeye/sockeye_fig34_script.R")
+source("R/sockeye/sockeye_catch_bydistrict.R")
+source("R/sockeye/sockeye_marine_catch_plots.R")
+source("R/sockeye/sockeye_prop_week31.R")
+source("R/sockeye/sockeye_er_sa.R")
+source("R/sockeye/sockeye_ers_area5.R")
+source("R/sockeye/sockeye_stockcomp_d101104.R")
+source("R/sockeye/sockeye_fr_catch.R")
 source("R/sockeye/sockeye_fr_stockcomps.R")
+
+source("R/sockeye/skeena-sockeye-trtc-cu-akers.R")
+source("R/sockeye/nass-sockeye-trtc-cu-akers.R")
 ```
 
 ```{r read sockeye data}
-sk_harv <- read.csv("data-raw/SEAK_catch/SEAK D101-D106 harvest by district by week.csv") %>%
-  filter(`Species.Name` == "Sockeye Salmon") %>%
-  filter(`Number.Of.Fish..estimated.` != "Confidential") %>%
-  mutate(`Number.Of.Fish..estimated.` = as.numeric (`Number.Of.Fish..estimated.`))
-
-sk_annual <- sk_harv %>%filter(`District.Number` %in% 101:106) %>%
-  group_by(Year, `District.Number`) %>%
-  summarise(total_catch = sum(`Number.Of.Fish..estimated.`, na.rm = TRUE),
-            .groups = "drop")
+sk_harv <- read.csv("data-raw/SEAK_catch/SEAK D101-D106 harvest by district by week.csv") 
 
 pre.sn<-read.csv("data-raw/D104 pre 31 versus total.csv", check.names = FALSE)  
 
@@ -114,7 +107,7 @@ stockgroups <- read.csv("data-raw/D104_AnnualCatchByStockGroup.csv", check.names
 ```
 
 ```{r fig-sx-catch-bydistrict, fig.height=6, fig.cap="Total catch of sockeye salmon by year for SSEAK Districts 101-106 (1985-2021). Smoothed lines are derived by LOESS with standard errors shown in grey."}
-make.catch.bydistrict(sk_annual)
+make.catch.bydistrict(sk_harv)
 ```
 
 ```{r fig-sk-marine-catch, fig.height=5, fig.cap="Canadian and US Skeena sockeye harvest (1960-2023)."}
@@ -124,7 +117,6 @@ make.sk.marine.catch.plot(skeena.sx.trtc)
 ```{r fig-nass-marine-catch, fig.height=5, fig.cap="Canadian and US Nass sockeye harvest (1980-2023)."}
 make.nass.marine.catch.plot(nass.sx.trtc)
 ```
-
 
 ```{r fig-pre-sk, fig.height=5, fig.cap="Proportion of total D104 catch harvested before Week 31 for Skeena sockeye salmon."}
 make.prop.week31.sk(pre.sn)
@@ -136,7 +128,6 @@ make.prop.week31.nass(pre.sn)
 
 ```{r fig-ers-subarea, fig.height=6, fig.cap="SEAK exploitation rate on Skeena and Nass sockeye by SEAK fishing sub-area."}
 make.ers.sub.area(sn)
-
 ```
 
 ```{r fig-ers-area5, fig.height=5, fig.cap="Canadian and SEAK exploitation rates on Area 5 sockeye, 1960 to 2017."}
@@ -354,14 +345,13 @@ make.pink.bluesheet(bluesheet)
 ```{r read TBR data}
 d106 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.106.harvest")
 d108 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.106.harvest")
-d111 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.D111harvest")
+d111 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.D111harvest")
 
 stikine.cn<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.stikine.chinook.rr")
 
 ```
 
 ```{r source TBR scripts}
-library(patchwork)
 source("R/TBR_106_108_catch.R")
 source("R/TBR_111_gncatch.R")
 source("R/TBR_stikine_chinook.R")
