@@ -355,11 +355,16 @@ make.pink.bluesheet(bluesheet)
 d106 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.106.harvest")
 d108 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.106.harvest")
 d111 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.D111harvest")
+
+stikine.cn<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.stikine.chinook.rr")
+
 ```
 
 ```{r source TBR scripts}
 source("R/TBR_106_108_catch.R")
 source("R/TBR_111_gncatch.R")
+source("R/TBR_stikine_chinook.R")
+
 ```
 
 ```{r fig-tbr-106108-catch, fig.height=8, fig.cap="SEAK catch of all salmon species in Districts 106 and 108, 1960-2023."}
