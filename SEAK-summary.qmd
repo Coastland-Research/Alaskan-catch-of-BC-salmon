@@ -358,6 +358,8 @@ taku.co<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.D20.Taku
 
 d111.sx<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.D111.sx.catch")
 
+taku.sx<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.D15.Taku.SX")
+
 ```
 
 ```{r source TBR scripts}
@@ -368,6 +370,7 @@ source("R/TBR_stikine_cn_catch.R")
 source("R/TBR_taku_cn_rr.R")
 source("R/TBR_taku_co_rr.R")
 source("R/TBR_taku_sx_byfishery.R")
+source("R/TBR_taku_sx_rr.R")
 ```
 
 ```{r fig-tbr-106108-catch, fig.height=8, fig.cap="SEAK catch of all salmon species in Districts 106 and 108, 1960-2023."}
@@ -398,6 +401,9 @@ make.taku.co.rr(taku_co)
 make.taku.sx.fishery(d111.sx)
 ```
 
+```{r fig-taku-sx-rr, fig.height=8, fig.cap= "Taku River sockeye salmon Canadian harvest, US harvest, and escapement (top panel), Canadian vs US harvest (middle panel), and Canadian and US percent of total harvest (bottom panel), 1984-2023."}
+make.taku.sx.rr(taku.sx)
+```
 
 # Steelhead
 
