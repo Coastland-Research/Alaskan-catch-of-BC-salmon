@@ -349,13 +349,22 @@ d111 <- read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.D111harv
 
 stikine.cn<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx", sheet="TBR.stikine.chinook.rr")
 
+data<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.stikine.cn.d108.catch")
+data3<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.stikine.cn.d108.prop")
+
+taku_cn<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.D5.Taku.Lchinook")
+
+taku.co<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.D20.Taku.CO")
+
 ```
 
 ```{r source TBR scripts}
 source("R/TBR_106_108_catch.R")
 source("R/TBR_111_gncatch.R")
 source("R/TBR_stikine_chinook.R")
-
+source("R/TBR_stikine_cn_catch.R")
+source("R/TBR_taku_cn_rr.R")
+source("R/TBR_taku_co_rr.R")
 ```
 
 ```{r fig-tbr-106108-catch, fig.height=8, fig.cap="SEAK catch of all salmon species in Districts 106 and 108, 1960-2023."}
@@ -369,6 +378,19 @@ make.tbr.d111.gncatch(d111)
 ```{r fig-stikine-chinook, fig.height=8, fig.cap="Stikine River Chinook salmon Canadian harvest, US harvest, and escapement (top panel), Canadian vs US harvest (middle panel), and Canadian and US percent of total harvest (bottom panel), 1996-2023."}
 make.stikine.cn.plot(stikine.cn)
 ```
+
+```{r fig-stikine-cn-catch, fig.height=8, fig.cap="Stikine River District 108 Chinook salmon US catch and stock proportion by fishery, 2005-2023."}
+make.stikine.cn.catch(data, data3)
+```
+
+```{r fig-taku-cn-rr, fig.height=8, fig.cap = "Taku River Chinook salmon Canadian harvest, US harvest, and escapement (top panel), Canadian vs US harvest (middle panel), and Canadian and US percent of total harvest (bottom panel), 1988-2023."}
+make.taku.cn.rr(taku_cn)
+```
+
+```{r fig-taku-co-rr, fig.height=8, fig.cap="Taku River Coho salmon Canadian harvest, US harvest, and escapement (top panel), Canadian vs US harvest (middle panel), and Canadian and US percent of total harvest (bottom panel), 1992-2023."}
+make.taku.co.rr(taku_co)
+```
+
 # Steelhead
 
 ## Appendix 1: Pacific Salmon Commission Chinook Technical Committee Mortality Distribution Tables
