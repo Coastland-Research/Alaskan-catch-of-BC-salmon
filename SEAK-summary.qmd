@@ -360,6 +360,8 @@ d111.sx<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.D111.sx.
 
 taku.sx<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.D15.Taku.SX")
 
+alsek<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.ALSEK.chinook")
+
 ```
 
 ```{r source TBR scripts}
@@ -371,6 +373,7 @@ source("R/TBR_taku_cn_rr.R")
 source("R/TBR_taku_co_rr.R")
 source("R/TBR_taku_sx_byfishery.R")
 source("R/TBR_taku_sx_rr.R")
+source("R/TBR_alsek_cn_catch.R")
 ```
 
 ```{r fig-tbr-106108-catch, fig.height=8, fig.cap="SEAK catch of all salmon species in Districts 106 and 108, 1960-2023."}
@@ -397,12 +400,16 @@ make.taku.cn.rr(taku_cn)
 make.taku.co.rr(taku_co)
 ```
 
-```{r fig-taku-sx-fishery, fig.height=8, fig.cap="Taku River Sockeye salmon catch in District 111 by fishery, 1967-2023."}
+```{r fig-taku-sx-fishery, fig.height=6, fig.cap="Taku River Sockeye salmon catch in District 111 by fishery, 1967-2023."}
 make.taku.sx.fishery(d111.sx)
 ```
 
-```{r fig-taku-sx-rr, fig.height=8, fig.cap= "Taku River sockeye salmon Canadian harvest, US harvest, and escapement (top panel), Canadian vs US harvest (middle panel), and Canadian and US percent of total harvest (bottom panel), 1984-2023."}
+```{r fig-taku-sx-rr, fig.height=8, fig.cap="Taku River sockeye salmon Canadian harvest, US harvest, and escapement (top panel), Canadian vs US harvest (middle panel), and Canadian and US percent of total harvest (bottom panel), 1984-2023."}
 make.taku.sx.rr(taku.sx)
+```
+
+```{r fig-alsek-cn-catch, fig.height=6, fig.cap="Canadian and US catch of Alsek River Chinook salmon by fishery, 1960-2023."}
+make.alsek.cn.catch(alsek)
 ```
 
 # Steelhead
