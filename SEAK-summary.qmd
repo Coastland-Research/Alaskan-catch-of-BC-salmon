@@ -366,6 +366,10 @@ alsek.sx<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.ALSEK.s
 
 catch<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.ALSEK.co.pk.cm.catch")
 
+cn<-fread("data-raw/chinook/cn_all_mort_updated.csv")
+
+stikine.sx<-read_excel("data-raw/TBR/TBR data_updated2023.xlsx",sheet="TBR.stikine.river")
+
 ```
 
 ```{r source TBR scripts}
@@ -383,6 +387,8 @@ source("R/TBR_alsek_cn_catchprop.R")
 source("R/TBR_alsek_sx_catch.R")
 source("R/TBR_alsek_sx_catchprop.R")
 source("R/TBR_alsek_co_pk_cm_catch.R")
+source("R/TBR_total_er_cn.R")
+source("R/TBR_stikine_sx.R")
 ```
 
 ```{r fig-tbr-106108-catch, fig.height=6, fig.cap="SEAK catch of all salmon species in Districts 106 and 108, 1960-2023."}
@@ -440,6 +446,15 @@ make.alsek.sx.catchprop(alsek.sx)
 ```{r fig-alsek-co-pk-cm, fig.height=8, fig.cap="US catch, effort, and CPUE for Alsek River Coho, Pink, and Chum Salmon, 1960-2023."}
 make.co.pk.cm.catch(catch)
 ```
+
+```{r fig-total-er-cn, fig.height=6, fig.cap="Canadian and US total exploitation rate for Taku and Stikine Chinook salmon, 1979-2019"}
+make.total.er.cn(cn)
+```
+
+```{r fig-stikine-sx, fig.height=8, fig.cap="Stikine River Sockeye salmon Canadian harvest, US harvest, and escapement (top panel), Canadian vs US harvest (middle panel), and Canadian and US percent of total harvest (bottom panel), 1979-2023."}
+make.stikine.sk.plot(stikine.sx)
+```
+
 # Steelhead
 
 ## Appendix 1: Pacific Salmon Commission Chinook Technical Committee Mortality Distribution Tables
