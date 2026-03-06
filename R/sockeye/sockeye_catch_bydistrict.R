@@ -19,7 +19,7 @@ make.catch.bydistrict <- function(sk_harv){
     facet_wrap(~ `District.Number`, ncol = 2) +
     labs(
       title = "SSEAK Catch All Gear by District (101–106)",
-      subtitle = "Sockeye Salmon (1985–2021)",
+      subtitle = "Sockeye Salmon (1985–2023)",
       x = "Year", y = "Total Catch") +
     theme_bw() +
     theme(strip.background = element_rect(fill = "grey90"))

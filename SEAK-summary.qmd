@@ -49,25 +49,32 @@ bluesheet <- read.csv("data-raw/SEAK_catch/Alaska Statewide Salmon Landings by A
 
 # Southeast Alaska Catch of BC Salmon
 
-### Fishing areas in Southeast Alaska
+Figure 1 shows Southeast Alaskan fisheries management areas. Note the location of the District 104 (Noyes and Dall Island) and District 101 (Tree Point) areas.
+
 ```{r include-jpeg, echo=FALSE, fig.cap = "Map of Southeast Alaska Fishing Areas by District.", out.width='70%'}
 #| label: fig-seak-map
 knitr::include_graphics("figure1-map.jpeg")
 
 ```
 
-### Total salmon harvest in Southeast Alaska fisheries by year and species
+Total catch of all species in SEAK commercial fisheries has ranged from ~70 million to ~260 million between 1985 and 2024 (Figure 2). Pink salmon dominate catch numbers. Chum and sockeye are the second most caught, followed by coho and finally Chinook salmon.
 
 ```{r fig-harvest-species, fig.height=5, fig.cap="Southeast Alaska, US (SEAK) total harvest in millions of fish by species for each year for 1979-2021."}
 make.harvest.byspecies(catch)
 ```
 
-### Total salmon harvest and total value in Southeast Alaska fisheries by year and species
+Figure 3 shows the harvest and harvest value of all salmon species in SEAK from 1979-2023 Catch of chum salmon increased dramatically in the early 1990s. Catches of Chinook and coho salmon are trending down in recent years. Pink salmon catch is highly variable, with a discernable odd year/even year pattern (odd years being higher). Sockeye catches peaked in the mid-90s and have trended down since. Value is influenced by both the number of fish caught and the price per pound in any given year. Chum salmon now contribute the most value in SEAK fisheries.
+
 ```{r fig-seak-value, fig.height=10, fig.cap= "Southeast Alaska, US (SEAK) harvest (millions of fish) and value (millions of US Dollars) by species from 1985-2023."}
 make.harvest.value.byspecies(value, catch)
 ```
 
-### 2023 Southeast Alaska harvest by statistical week, broken down by district, species, and gear type
+Figure 4 shows the catch of Chinook, pink and sockeye salmon from Southeast Alaska districts 101, 102, 103, 104, and 106 in 2023, for seines and gillnets.
+
+Note that the pattern of harvest is similar to that in other years, with sockeye harvest peaking in the D104 fishery slightly before the peak in pink harvest. In 2023, pink harvest was highest in D104 and D102, with the vast majority of sockeye harvest from D104.
+
+Chinook was non-retention in the purse seine fisheries through almost all of 2023, however in one day of opening ~ 6,000 Chinook were kept in D104.
+
 ```{r fig-catch-statweek, fig.height=6, fig.cap="Harvest by species, gear type, district, and statistical week."}
 make.catch.statweek.plot(harvests)
 ```
@@ -106,9 +113,15 @@ stockgroups <- read.csv("data-raw/D104_AnnualCatchByStockGroup.csv", check.names
 
 ```
 
-```{r fig-sx-catch-bydistrict, fig.height=6, fig.cap="Total catch of sockeye salmon by year for SSEAK Districts 101-106 (1985-2021). Smoothed lines are derived by LOESS with standard errors shown in grey."}
+Total sockeye catches (all gears) in Districts 101 and 106 have declined since the 90s, total catch in Districts 102, 103, and 105 have remained low and District 104 total catch peaked in the 90s and declined to an average of ~ 225,000 since, with catches ranging from near 0 to almost 800,000 (Figure 5).
+
+```{r fig-sx-catch-bydistrict, fig.height=6, fig.cap="Total catch of sockeye salmon by year for SSEAK Districts 101-106 (1985-2023). Smoothed lines are derived by LOESS with standard errors shown in grey."}
 make.catch.bydistrict(sk_harv)
 ```
+
+The following set of figures describe the commercial marine catch of Skeena and Nass sockeye in South Southeast Alaska (SSEAK) and BC, with specific information on the proportion of catch between regions and trends over time. We also provide a more detailed summary of information on specific fisheries in SSEAK (e.g. with focus on District 104 and the Noyes and Dall Island fishing areas). Data source is provided in each figure.
+
+US and Canadian commercial catch have declined since the 1990s for both Skeena (Figure 6) and Nass (Figure 7) sockeye.
 
 ```{r fig-sk-marine-catch, fig.height=5, fig.cap="Canadian and US Skeena sockeye harvest (1960-2023)."}
 make.sk.marine.catch.plot(skeena.sx.trtc)
@@ -118,6 +131,8 @@ make.sk.marine.catch.plot(skeena.sx.trtc)
 make.nass.marine.catch.plot(nass.sx.trtc)
 ```
 
+Chapter 2 of the Pacific Salmon Treaty contains a clause that limits harvest of sockeye prior to Statistical Week 31 (end of July) in the District 104 seine fishery. The proportion of catch prior to Week 31 out of the total District 104 sockeye catch for Skeena and Nass sockeye is shown in Figures 8-9. Although variable, the proportion of sockeye harvested before Week 31 has declined for Nass sockeye, and was very low in 2019 and 2020 for Skeena sockeye. This could be an indication of later timed runs to the Skeena and Nass.
+
 ```{r fig-pre-sk, fig.height=5, fig.cap="Proportion of total D104 catch harvested before Week 31 for Skeena sockeye salmon."}
 make.prop.week31.sk(pre.sn)
 ```
@@ -126,21 +141,43 @@ make.prop.week31.sk(pre.sn)
 make.prop.week31.nass(pre.sn)
 ```
 
+SEAK sub-area exploitation rate distributions over all years on Skeena and Nass sockeye are shown in Figure 10.
+
+Notably, the Noyes and Dall (District 104) fisheries have the most significant impact on Skeena sockeye, followed by the Tree Point (District 101) and Lower Clarence (southern District 102) fisheries.
+
+For Nass sockeye, the Tree Point fishery has the most significant impact, followed by the Noyes, Dall, and Lower Clarence fisheries. This highlights the different migration routes of Skeena and Nass fisheries, where Nass sockeye are much more susceptible to harvest in District 101.
+
 ```{r fig-ers-subarea, fig.height=6, fig.cap="SEAK exploitation rate on Skeena and Nass sockeye by SEAK fishing sub-area."}
 make.ers.sub.area(sn)
 ```
+
+Figure 11 shows the Canadian and Alaskan exploitation rates of Area 5 sockeye salmon. Estimated Canadian ERs averaged around 15% in the 60s-80s, peaked in the 90s at around 30% and have since declined dramatically to between 0 and 8% in the last 10 years. Alaskan ERs have remained relatively constant between 0 and 5%.
 
 ```{r fig-ers-area5, fig.height=5, fig.cap="Canadian and SEAK exploitation rates on Area 5 sockeye, 1960 to 2017."}
 make.ers.area5(sa.data)
 ```
 
+
+The PSC Northern Fund final reports provide stock composition estimates by regional reporting groups based on genetic analyses of fisheries samples. We extracted stock composition data for District 101 commercial gillnet fishery and the District 104 commercial purse seine fisheries from the three most recent years available (Guthrie et al. 2018, 2019a, 2019b). Weekly stock compositions are shown in Figure 12. 
+While Skeena and Nass (and Alaska) sockeye dominated catches in these 3 years in both fisheries, there was a small portion of catch attributed to the South Migrating reporting group separate from Fraser River sockeye. It is important to note that the reporting groups were condensed in fishery year 2016, so that those reports previous to 2016 showed a greater resolution of south migrating stocks and showed Central Coast BC and Queen Charlotte Island reporting groups (Guthrie et al. 2010, 2011, 2012, 2013, 2014, 2015a, 2015b, 2016, 2017). While these reporting groups were only present in fisheries in small proportions, sample size and power to detect low abundance populations may have been an issue. 
+In summary, BC sockeye from areas other than the Fraser, Skeena and Nass Rivers are likely present in these fisheries in most years.
+
 ```{r fig-stockcomp, fig.height=8, fig.cap="Weekly stock composition of sockeye in the District 101 commercial gillnet and 104 commercial purse seine fisheries for 2016-2018. Estimates are based on genetic stock ID."}
 make.stockcomp.d101104(data)
 ```
 
+Information on Alaskan interceptions of Fraser sockeye by Canadian, Washington and Alaskan fisheries from 2000-2022 were provided by the Pacific Salmon Commission (PSC 2021a) and DFO (Les Jantz and Jamie Scroggie, personal communication, 2021). Additional information at the Conservation Unit/Stock level was provided in Latham and Samarasin (2018), which is a draft report summarizing the results of genetic analysis using Single Nucleotide Polymorphisms (SNPs) from sockeye samples collected during the 2018 fishing season from Alaskan District 104 seine fisheries.
+
+Alaskan catch of Fraser sockeye averaged ~ 60,000 from 2000 to 2020 (Figure 13, top panel). Canadian catch averaged ~ 2.2 million and Washington catch averaged ~ 320,000 over the same period. However, due to the cyclic nature of Fraser sockeye catch, average catch may not be an appropriate indicator of each fishery’s relative impact in a given year.
+Alaskan exploitation is typically estimated to be very low (< 5%), with only 2 years 10% or higher (Figure 13, middle panel).
+The percent of total Fraser sockeye catch attributed to Alaskan fisheries is typically low, however there are a number of years where the proportion of Alaskan catch has been near to or much greater than the Canadian proportion ((Figure 13, bottom panel). This can likely be attributed to abundance-based management in PSC Fraser Panel waters, where in low abundance years Washington and BC fisheries targeting Fraser sockeye would be severely curtailed, whereas Alaskan fisheries are independent of Fraser sockeye abundance.
+In 2018, Alaskan catch of Fraser sockeye was estimated to be ~ 53,000 (PSC 2021). Of this, Shuswap Lake sockeye dominated the catch (57%), followed by Quesnel (22%) and Chilko (13%) sockeye (Latham and Samarasin 2018).
+
 ```{r fig-catch-byregion, fig.height=8, fig.cap="Canadian (green), Alaskan (red) and Washington (green) catch (top panel), exploitation rate (middle panel) and percent of catch (bottom panel) for Fraser River sockeye from 2000-2022."}
 make.fr.catch.plot(regions)
 ```
+
+Figure 14 shows the stock composition of Fraser River sockeye catch by Conservation Unit between 2000 and 2021.
 
 ```{r fig-fr-stockcomps, fig.height=6, fig.cap="Stock composition by Conservation Unit for Fraser sockeye catch from 2000-2021."}
 make.stockcomp.fr(stockgroups)
@@ -177,6 +214,9 @@ make.nass.trtc.lineplot(nass.sx.trtc)
 make.nass.trtc.boxplot(nass.sx.trtc)
 ```
 
+ADFG “Blue Sheet” harvest data for SEAK commercial fisheries was requested and provided from ADFG for 1979-2024.
+Figure 19 shows the harvest of sockeye salmon by SEAK fishery for 1979-2024. Sockeye salmon are primarily caught in the Bristol Bay, Alaska Peninsula/Aleutian Islands, Cook Inlet, and Kodiak fisheries, as well as Prince William Sound, Southeast/Yakutat, and Chignik fisheries. 
+
 ```{r fig-sk-bs-fishery, fig.height=8, fig.cap= "Southeast Alaska, US (SEAK) harvest of Sockeye by fishery between 1980 and 2024. Note that the y-axis scales are scaled by individual facet."}
 make.sockeye.bluesheet(bluesheet)
 ```
@@ -203,18 +243,25 @@ cn_new <- fread("data-raw/chinook/cn_all_mort_new2025.csv")
 
 ```
 
+Chinook salmon catch in SEAK is historically dominated by power troll traditional (60%) and spring (11%) fisheries, with smaller contributions (< 25,000 median catch) from other fisheries (e.g., southern purse seine, hatchery cost recovery, etc.) (Figure 20). Median catch from 1980-2021 in the southern purse seine fisheries is just under 10,000, but in some years can be much higher (20-30,000). The total 2021 catch in Southern Purse Seine fisheries was 6,836 (ADFG 2021c), lower than the median catch at the ~ 35th percentile of all years.
+
 ```{r fig-cn-boxplot, fig.height=6, fig.cap="Distribution of total Chinook salmon commercial catch in SEAK Blue Sheet fisheries from 1980-2021."}
 make.cn.blusheet.box(data)
 ```
 
-```{r fig-cn-catch-bydistrict, fig.height=6, fig.cap = "Total catch of Chinook salmon by year for SSEAK Districts 101-106 (1985-2021). Smoothed lines are derived by LOESS with standard errors shown in grey."}
+Total catches (all gears) in District 104 is highly variable but has declined substantially since around 2000 (Figure 21). The last few years have seen relatively low catches at less than or around 20,000. District 101 catch has remained relatively constant since increasing in the 90s. Catch in District 104 was higher than in the last 4 years in 2021.
 
+```{r fig-cn-catch-bydistrict, fig.height=6, fig.cap = "Total catch of Chinook salmon by year for SSEAK Districts 101-106 (1985-2021). Smoothed lines are derived by LOESS with standard errors shown in grey."}
 make.cn.districts.plot(districts)
 ```
+
+Canadian and SEAK exploitation rates for north and central coast BC Chinook Areas with data are shown in Figure 22. Area 9S refers to Area 9 Summer Chinook, and Area 9W refers to Wannock Chinook. Canadian exploitation rates have been variable, but in general have remained relatively constant (Areas 3, 6, 9W, and 9S), increased (Area 8) or decreased (Area 10). There is little recent data for Area 10, and Area 8 ERs are likely driven by catch of enhanced Atnarko River Chinook. SEAK ERs have increased (9W and 9S), averaged about the same (Areas 3, 4, and 6), or decreased (Areas 8 and 10) over time. Area 4 ERs were historically the highest, averaging around ~40-50%, dropped in the late 90s and in recent years have averaged between 10 and 20%. SEAK ERs range from near 0 to close to 40% in some Areas (Area 9W and 9S in recent years).
 
 ```{r fig-cn-er-statarea, fig.height=8, fig.cap="SEAK (red) and Canadian (blue) exploitation rates by year for north and central coast (Statistical Areas 1-10) Chinook salmon from 1985-2017. Source: LGL 2021a."}
 make.cn.ers.plot(sa.data)
 ```
+
+Figure 23 shows SEAK ERs over time by CU for Skeena, Central Coast, and Nass CUs. There is some variation in trends between CUs, however following Area specific SEAK ERs, there are substantial increases in SEAK ERs in recent years in Rivers Inlet and Wannock Chinook CUs. In Skeena CUs, SEAK ER has declined slightly in Lower Skeena and Middle Skeena (large lakes and mainstem tributaries) CUs, while it has remained relatively steady in 
 
 ```{r fig-cn-er-cu, fig.height=8, fig.cap="SEAK exploitation rates for Chinook salmon from north and central coast Conservation Units from 1954-2017. Trend lines derived using LOESS in R. Source: PSF 2021."}
 

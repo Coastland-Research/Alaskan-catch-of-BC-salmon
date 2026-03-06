@@ -19,9 +19,8 @@ make.stockcomp.fr <- function(stockgroups){
   geom_col(position = "stack")+
   scale_fill_manual(values = colors_20)+
   theme_bw() +
-  theme(axis.text.x = element_text(angle = 60, vjust = 0.25, hjust=0.25))+
-  ggtitle("Stock composition of Fraser River sockeye catch")
-}
+  theme(axis.text.x = element_text(angle = 60, vjust = 0.25, hjust=0.25))
+  }
 
   
   

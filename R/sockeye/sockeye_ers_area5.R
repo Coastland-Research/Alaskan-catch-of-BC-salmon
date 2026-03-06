@@ -16,5 +16,5 @@ make.ers.area5 <- function(sa.data){
   scale_color_manual(values=c("#E41A1C","#377EB8"),labels=c("CDN","SEAK"))+
   theme(legend.position = "right")+
   xlim(1960,2020)+
-  labs(y="Exploitation Rate",title="CDN and SEAK Exploitation of Area 5 Sockeye",color="Region")
+  labs(y="Exploitation Rate",color="Region")
 }
